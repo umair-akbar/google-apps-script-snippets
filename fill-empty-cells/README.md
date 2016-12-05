@@ -8,8 +8,10 @@
     FillEmptyCells.createMenu();
   }
   * Запустить `onOpen()` в редакторе однажды
+  ```
 
 ## Пример
 
 Копировать [Fill Empty Cells](https://docs.google.com/spreadsheets/d/1AziTOGXmv7kCtMeaVuV1BPRBk1JWSAlY-EVon3tEYMA/copy) 
+
 
