@@ -7,8 +7,8 @@
   function onOpen(e) {
     FillEmptyCells.createMenu();
   }
-  * Запустить `onOpen()` в редакторе однажды
   ```
+  * Запустить `onOpen()` в редакторе однажды
 
 ## Пример
 
