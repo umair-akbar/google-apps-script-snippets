@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <base target="_top">
+  <link rel="stylesheet" href="https://ssl.gstatic.com/docs/script/css/add-ons1.css">
+  <style>
+    .inner {
+      width: 50%;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="inner">
+    <form id="form">
+      <fieldset id="fieldset">
+        <div class="block">
+          <label for="id" style="display: inline-block; width: 100px;">Spreadsheet id</label>
+          <input type="text" id="id" name="id" style="width: 250px;" value="1X-GL8uXUTK0OO8yr8YaQmwwBG9-ksCF1uzuwUFfuwoA">
+        </div>
+        <div class="block">
+          <label for="a1Notation" style="display: inline-block; width: 100px;">Range</label>
+          <input type="text" id="a1Notation" name="a1Notation" style="width: 250px;" value="Sheet1!A1:B7">
+        </div>
+        <div class="block">
+          <label style="display: inline-block; width: 100px;"></label>
+          <input type="button" id="btnAction" style="width: 250px;" value="Protect" class="blue">
+        </div>
+      </fieldset>
+    </form>
+  </div>
+  <script>
+    var fieldset = document.getElementById('fieldset');
+    var form = document.getElementById('form');
+    var btnAction = document.getElementById('btnAction');
+    btnAction.addEventListener('click', function(event) {
+      var data = {};
+      for (var i = 0; i < form.elements.length; i++) {
+        if(form.elements[i].value && form.elements[i].name)
+          data[form.elements[i].name] = form.elements[i].value;
+      }
+        fieldset.disabled = true;
+        google.script.run
+        .withSuccessHandler(function(e){
+            fieldset.disabled = false;
+            alert('Ok');
+        })
+        .withFailureHandler(function(err){
+            fieldset.disabled = false;
+            alert(err.message);
+        })
+        .protectRange(data);
+    }, false);
+  </script>
+</body>
+
+</html>
