@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>
+
+  </title>
+  <style type="text/css">
+    body {
+      background-color: #FFFFFF;
+    }
+    
+    input {
+      display: block;
+      margin: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <div align="center">
+    <p><img src="https://b627cc12-a-62cb3a1a-s-sites.googlegroups.com/site/imagehosting199/home/GoogleTeamColorSmall.png"></p>
+    <table width="459" border="0">
+      <tbody>
+        <tr>
+          <td width="462">
+            <div align="center">
+              <hr>
+            </div>
+            <form id="myForm" align="center">
+              <input type="text" name="myName" placeholder="Your name..">
+              <input type="file" name="myFile" onChange="setStatus(this)">
+              <input type="submit" value="Upload File" onclick="submit_click(this);">
+            </form>
+            <div id="output"></div>
+            <script>
+              function submit_click(button) {
+                event.preventDefault();
+                var curVal = button.value;
+                button.value = 'Uploading..';
+                document.getElementById('output').innerHTML = '';
+                setStatus(document.getElementById('myForm'));
+                if (!button.parentNode.myFile.value) {
+                  button.value = curVal;
+                  return false;
+                }
+                google.script.run.withSuccessHandler(fileUploaded)
+                  .uploadFiles(this.parentNode);
+                return false;
+              }
+
+              function setStatus(file) {
+                if (file) {
+                  document.getElementById('output').innerHTML = 'Fail prikreplen';
+                } else {
+                  document.getElementById('output').innerHTML = 'Fail ne prikreplen';
+                }
+              }
+
+              function fileUploaded(status) {
+                document.getElementById('myForm').style.display = 'none';
+                document.getElementById('output').innerHTML = status;
+              }
+            </script>
+            <hr>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>&nbsp;</h3>
+    <p>&nbsp;</p>
+  </div>
+</body>
+
+</html>
