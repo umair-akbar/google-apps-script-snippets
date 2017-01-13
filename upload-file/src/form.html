@@ -30,37 +30,43 @@
             </div>
             <form id="myForm" align="center">
               <input type="text" name="myName" placeholder="Your name..">
-              <input type="file" name="myFile" onChange="setStatus(this)">
+              <input type="file" name="myFile" id="myFile" onChange="setStatus(this)">
               <input type="submit" value="Upload File" onclick="submit_click(this);">
             </form>
             <div id="output"></div>
             <script>
+              var myFile = document.getElementById('myFile');
+              var myForm = document.getElementById('myForm');
+              var output = document.getElementById('output');
+
               function submit_click(button) {
                 event.preventDefault();
                 var curVal = button.value;
                 button.value = 'Uploading..';
-                document.getElementById('output').innerHTML = '';
-                setStatus(document.getElementById('myForm'));
+                output.innerHTML = '';
+                console.log(myFile);
+                setStatus(myFile);
                 if (!button.parentNode.myFile.value) {
                   button.value = curVal;
                   return false;
                 }
                 google.script.run.withSuccessHandler(fileUploaded)
-                  .uploadFiles(this.parentNode);
+                  .uploadFiles(button.parentNode);
                 return false;
               }
 
               function setStatus(file) {
-                if (file) {
-                  document.getElementById('output').innerHTML = 'Fail prikreplen';
+                console.log('setStatus', file);
+                if (file.value) {
+                  output.innerHTML = 'Fail prikreplen';
                 } else {
-                  document.getElementById('output').innerHTML = 'Fail ne prikreplen';
+                  output.innerHTML = 'Fail ne prikreplen';
                 }
               }
 
               function fileUploaded(status) {
-                document.getElementById('myForm').style.display = 'none';
-                document.getElementById('output').innerHTML = status;
+                myForm.style.display = 'none';
+                output.innerHTML = status;
               }
             </script>
             <hr>
