@@ -24,16 +24,26 @@ function getSheetByName(spreadsheet, sheetName){
 var spreadsheet = SpreadsheetApp.getActiveSpreadsheet();
 var settingsSheet = getSheetByName(spreadsheet, 'Settings');
 ```
-
+### cropSheetBySize(sheet, leftRows, topCols)
+Prettify the given sheet cropping it
+```javascript
+function cropSheetBySize(sheet, leftRows, topCols){
+  (leftRows && sheet.getMaxRows() > leftRows) &&
+    sheet.deleteRows(leftRows + 1, sheet.getMaxRows() - leftRows);
+  (topCols && sheet.getMaxColumns() > topCols) &&
+    sheet.deleteColumns(topCols + 1, sheet.getMaxColumns() - topCols);
+  return sheet;
+}
+```
+#### Example
+```javascript
+  cropSheetByData(sheet, 2, 3);
+```
 ### cropSheetByData(sheet)
 Prettify the given sheet cropping it
 ```javascript
 function cropSheetByData(sheet){
-  (sheet.getMaxRows() - sheet.getLastRow()) &&
-    sheet.deleteRows(sheet.getLastRow() + 1, sheet.getMaxRows() - sheet.getLastRow());
-  (sheet.getMaxColumns() - sheet.getLastColumn()) &&
-    sheet.deleteColumns(sheet.getLastColumn() + 1, sheet.getMaxColumns() - sheet.getLastColumn());
-  return sheet;
+  return cropSheetBySize(sheet, sheet.getLastRow(), sheet.getLastColumn());
 }
 ```
 #### Example
