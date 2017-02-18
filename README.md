@@ -51,3 +51,11 @@ function cropSheetByData(sheet){
  sheet.clearContents().getRange(2, 1, values.length, values[0].length).setValues(values);
  cropSheetByData(sheet);
 ```
+### flushAndSleep(milliseconds)
+Give your table to cool down. Don't use with loops
+```javascript
+function flushAndSleep(milliseconds){
+  SpreadsheetApp.flush();
+  Utilities.sleep(milliseconds || 100);
+}
+```
