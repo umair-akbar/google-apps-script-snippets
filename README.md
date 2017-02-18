@@ -37,7 +37,7 @@ function cropSheetBySize(sheet, leftRows, topCols){
 ```
 #### Example
 ```javascript
-  cropSheetByData(sheet, 2, 3);
+  cropSheetBySize(sheet, 2, 3);
 ```
 ### cropSheetByData(sheet)
 Prettify the given sheet cropping it
