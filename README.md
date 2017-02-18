@@ -24,3 +24,18 @@ function getSheetByName(spreadsheet, sheetName){
 var spreadsheet = SpreadsheetApp.getActiveSpreadsheet();
 var settingsSheet = getSheetByName(spreadsheet, 'Settings');
 ```
+
+### cropSheetByData(sheet)
+Prettify the given sheet cropping it
+```javascript
+function cropSheetByData(sheet){
+  (sheet.getMaxRows() - sheet.getLastRow()) && sheet.deleteRows(sheet.getLastRow() + 1, sheet.getMaxRows() - sheet.getLastRow());
+  (sheet.getMaxColumns() - sheet.getLastColumn()) && sheet.deleteColumns(sheet.getLastColumn() + 1, sheet.getMaxColumns() - sheet.getLastColumn());
+  return sheet;
+}
+```
+#### Example
+```javascript
+ sheet.clearContents().getRange(2, 1, values.length, values[0].length).setValues(values);
+ cropSheetByData(sheet);
+```
