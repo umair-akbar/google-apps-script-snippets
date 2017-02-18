@@ -19,3 +19,8 @@ function getSheetByName(spreadsheet, sheetName){
   return sheet || spreadsheet.insertSheet(sheetName);
 }
 ```
+#### Example
+```javascript
+var spreadsheet = SpreadsheetApp.getActiveSpreadsheet();
+var settingsSheet = getSheetByName(spreadsheet, 'Settings');
+```
