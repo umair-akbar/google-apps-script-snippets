@@ -52,10 +52,26 @@ function cropSheetByData(sheet){
  cropSheetByData(sheet);
 ```
 ### flushAndSleep(milliseconds)
-Give your table to cool down. Don't use with loops
+Give your tables to cool down. Don't use with loops
 ```javascript
 function flushAndSleep(milliseconds){
   SpreadsheetApp.flush();
   Utilities.sleep(milliseconds || 100);
+}
+```
+### onOpen() Move to last cell in specific worksheet [Simple]
+```javascript
+  var name = 'Sheet1';
+  var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(name);
+  sheet.getRange(sheet.getLastRow(), 1).activate();
+```
+### onOpen() Move to last cell in specific worksheet [Advanced]
+```javascript
+function onOpen(){
+  var uid = '792071603';
+  var sheets = SpreadsheetApp.getActiveSpreadsheet().getSheets();
+  var uidsMap = sheets.reduce(function(p,c,i){p[c.getSheetId()]=i;return p;},{});
+  var sheet = sheets[uidsMap[uid]];
+  sheet.getRange(sheet.getLastRow(), 1).activate();
 }
 ```
