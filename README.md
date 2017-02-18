@@ -52,7 +52,7 @@ function cropSheetByData(sheet){
  cropSheetByData(sheet);
 ```
 ### flushAndSleep(milliseconds)
-Give your table to cool down. Don't use with loops
+Give your tables to cool down. Don't use with loops
 ```javascript
 function flushAndSleep(milliseconds){
   SpreadsheetApp.flush();
