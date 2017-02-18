@@ -9,3 +9,13 @@
 [2]: https://gist.github.com/oshliaer/4c3c926ab0a5bc9630fb
 [3]: https://gist.github.com/oshliaer/25d4fca21e8745df4de9
 [4]: https://gist.github.com/oshliaer/0801f151fb57a4bee7f2
+
+## Spreadsheet
+### getSheetByName(spreadsheet, sheetName)
+Always returns a sheet
+```javascript
+function getSheetByName(spreadsheet, sheetName){
+  var sheet = spreadsheet.getSheetByName(sheetName);
+  return sheet || spreadsheet.insertSheet(sheetName);
+}
+```
