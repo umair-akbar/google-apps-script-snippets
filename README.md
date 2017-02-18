@@ -29,8 +29,10 @@ var settingsSheet = getSheetByName(spreadsheet, 'Settings');
 Prettify the given sheet cropping it
 ```javascript
 function cropSheetByData(sheet){
-  (sheet.getMaxRows() - sheet.getLastRow()) && sheet.deleteRows(sheet.getLastRow() + 1, sheet.getMaxRows() - sheet.getLastRow());
-  (sheet.getMaxColumns() - sheet.getLastColumn()) && sheet.deleteColumns(sheet.getLastColumn() + 1, sheet.getMaxColumns() - sheet.getLastColumn());
+  (sheet.getMaxRows() - sheet.getLastRow()) &&
+    sheet.deleteRows(sheet.getLastRow() + 1, sheet.getMaxRows() - sheet.getLastRow());
+  (sheet.getMaxColumns() - sheet.getLastColumn()) &&
+    sheet.deleteColumns(sheet.getLastColumn() + 1, sheet.getMaxColumns() - sheet.getLastColumn());
   return sheet;
 }
 ```
