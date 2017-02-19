@@ -11,6 +11,33 @@
 [4]: https://gist.github.com/oshliaer/0801f151fb57a4bee7f2
 
 ## Spreadsheet
+### getWorkSpreadsheet
+Basic settings workflow
+```javascript
+function getWorkSpreadsheet() {
+  var spreadsheet, spreadsheetId = getUserProperties().spreadsheetId;
+  try {
+    spreadsheet = SpreadsheetApp.openById(spreadsheetId);
+  } catch (err) {
+    spreadsheet = SpreadsheetApp.create('.appsheet');
+    setUserProperties({
+      spreadsheetId: spreadsheet.getId()
+    });
+  }
+  return {
+    spreadsheetId: spreadsheetId,
+    name: spreadsheet.getName()
+  }
+}
+
+function getUserProperties() {
+  return PropertiesService.getUserProperties().getProperties();
+}
+
+function setUserProperties(properties) {
+  PropertiesService.getUserProperties().setProperties(properties);
+}
+```
 ### getSheetByName(spreadsheet, sheetName)
 Always returns a sheet
 ```javascript
