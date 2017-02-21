@@ -46,6 +46,14 @@ function getSheetByName(spreadsheet, sheetName){
   return sheet || spreadsheet.insertSheet(sheetName);
 }
 ```
+### getSheetByIndex(spreadsheet, index, name)
+Always returns a sheet
+```javascript
+function getSheetByIndex(spreadsheet, index){
+  var sheet = spreadsheet.getSheets()[index];
+  return sheet || spreadsheet.insertSheet();
+}
+```
 #### Example
 ```javascript
 var spreadsheet = SpreadsheetApp.getActiveSpreadsheet();
