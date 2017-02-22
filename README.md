@@ -10,7 +10,7 @@
 [3]: https://gist.github.com/oshliaer/25d4fca21e8745df4de9
 [4]: https://gist.github.com/oshliaer/0801f151fb57a4bee7f2
 
-## Spreadsheet
+## Spreadsheet (Class)
 ### getWorkSpreadsheet
 Basic settings workflow
 ```javascript
@@ -109,4 +109,20 @@ function onOpen(){
   var sheet = sheets[uidsMap[uid]];
   sheet.getRange(sheet.getLastRow(), 1).activate();
 }
+```
+## Spreradsheet (Arrays)
+### mapSheetHeaders(headers)
+```javascript
+function mapSheetHeaders(headers) {
+  var map = headers.reduce(function(pV, cV, i){
+    pV[cV] = i;
+    return pV;
+  }, {});
+  return map;
+}
+```
+### Example
+```javascript
+var values = SpreadsheetApp.getActiveSheet().getDataRange().getValues();
+var headers = mapSheetHeaders(values.shift());
 ```
