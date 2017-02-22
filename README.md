@@ -110,8 +110,17 @@ function onOpen(){
   sheet.getRange(sheet.getLastRow(), 1).activate();
 }
 ```
+### setValuesToSheet(sheet, values, row, column)
+```javascript
+function setValuesToSheet(sheet, values, row, column){
+  row = row || 1;
+  column = column || 1;
+  return sheet.getRange(1, 1, values.length, values[0].length).setValues(values);
+}
+```
 ## Spreradsheet (Arrays)
 ### mapSheetHeaders(headers)
+Map headers of a 2d array
 ```javascript
 function mapSheetHeaders(headers) {
   var map = headers.reduce(function(pV, cV, i){
