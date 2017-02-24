@@ -135,3 +135,16 @@ function mapSheetHeaders(headers) {
 var values = SpreadsheetApp.getActiveSheet().getDataRange().getValues();
 var headers = mapSheetHeaders(values.shift());
 ```
+## Extends and owerride
+### Short `Utilities.formatDate`
+```javascript
+function ufd_() {
+  return Utilities.formatDate.apply(Utilities, arguments);
+}
+```
+### Short `Utilities.formatString`
+```javascript
+function ufs_() {
+  return Utilities.formatString.apply(Utilities, arguments);
+}
+```
