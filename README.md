@@ -135,7 +135,7 @@ function mapSheetHeaders(headers) {
 var values = SpreadsheetApp.getActiveSheet().getDataRange().getValues();
 var headers = mapSheetHeaders(values.shift());
 ```
-## Extends and owerride
+## Extends and override
 ### Short `Utilities.formatDate`
 ```javascript
 function ufd_() {
@@ -147,4 +147,16 @@ function ufd_() {
 function ufs_() {
   return Utilities.formatString.apply(Utilities, arguments);
 }
+```
+### getArray(length, defaultValue)
+Initialize an array with length and default values
+```javascript
+function getArray(length, defaultValue){
+  return Array.apply(null, Array(length)).map(function () {return this;}, defaultValue);
+}
+```
+### Example
+```javascript
+  var arr = getArray(5, '');
+  //['', '', '', '', '']
 ```
