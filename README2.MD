@@ -7,6 +7,7 @@ function roundToDay_(date){
 ```
 
 ### Sort a mixed array
+http://stackoverflow.com/a/4340339/1393023
 ```javascript
 function sortAlphaNum(a, b) {
   var aA = a.replace(/[^a-zA-Z]/g, "");
@@ -22,6 +23,7 @@ function sortAlphaNum(a, b) {
 ```
 
 ### Sort a mixed array by columns
+http://stackoverflow.com/a/4340339/1393023
 ```javascript
 function sortAlphaNum(index, a, b) {
   var aA = a[index].replace(/[^a-zA-Z]/g, "");
