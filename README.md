@@ -135,6 +135,25 @@ function mapSheetHeaders(headers) {
 var values = SpreadsheetApp.getActiveSheet().getDataRange().getValues();
 var headers = mapSheetHeaders(values.shift());
 ```
+## DriveApp
+### moveFileToFolder(file, folder, stayRoot)
+Move file to folder
+```javascript
+function moveFileToFolder(file, folder, stayRoot){
+  folder.addFile(file);
+  if(stayRoot !== true)
+    DriveApp.getRootFolder().removeFile(file);
+  return file;
+}
+```
+### Example
+```javascript
+var folderId = '6630c884839571e483ed';
+var folder = DriveApp.getFolderById(folderId);
+var fileID = 'a8a398e30e79d0cc59a8';
+var file = DriveApp.getFileById(fileID);
+moveFileToFolder(file, folder);
+```
 ## Extends and override
 ### Short `Utilities.formatDate`
 ```javascript
