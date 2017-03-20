@@ -103,10 +103,10 @@ function flushAndSleep(milliseconds){
 ### onOpen() Move to last cell in specific worksheet [Advanced]
 ```javascript
 function onOpen(){
-  var uid = '792071603';
+  var gid = '792071603';
   var sheets = SpreadsheetApp.getActiveSpreadsheet().getSheets();
   var uidsMap = sheets.reduce(function(p,c,i){p[c.getSheetId()]=i;return p;},{});
-  var sheet = sheets[uidsMap[uid]];
+  var sheet = sheets[uidsMap[gid]];
   sheet.getRange(sheet.getLastRow(), 1).activate();
 }
 ```
