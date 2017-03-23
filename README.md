@@ -179,3 +179,13 @@ function getArray(length, defaultValue){
   var arr = getArray(5, '');
   //['', '', '', '', '']
 ```
+## Pretty JSON in Logger
+```javascript
+  function ll(){
+    var args = [];
+    for (var i = 0; i < arguments.length; i++) {
+      args.push(typeof arguments[i] === 'object' ? JSON.stringify(arguments[i], null, ' ') : arguments[i]);
+    }
+    Logger.log.apply(Logger, args);
+  }
+```
