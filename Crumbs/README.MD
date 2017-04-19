@@ -38,7 +38,7 @@ Replace two and more spaces from the given docs
 
 ```js
 function myFunction() {
-  Crumbs.getDosumentsService()
+  Crumbs.getDocumentsService()
   .addDocumentById('793ff6027d273a1e0115059a00260e8612d73098')
   .addDocumentById('8f124d0e4668b6f38001d80f0149c9758f6c2d43')
   .replaceText('[\t\n\f\r ]{2,}', ' ')

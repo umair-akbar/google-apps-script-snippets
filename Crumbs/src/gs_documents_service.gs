@@ -1,4 +1,4 @@
-function getDosumentsService() {
+function getDocumentsService() {
   return new Documents_();
 }
 
