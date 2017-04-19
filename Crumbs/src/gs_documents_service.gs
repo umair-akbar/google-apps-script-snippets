@@ -7,7 +7,6 @@ function Documents_() {
   this.getIterator = function () {
     var files = this.files;
     var nextIndex = 0;
-    Logger.log(nextIndex);
 
     return {
       next: function () {
