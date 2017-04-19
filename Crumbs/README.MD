@@ -1,5 +1,7 @@
 # Crumbs
 
+1qWPflFZ7ymFc7Zu4mUkoDIjJyWo3ewCrkw-kFqzr7UWEYGCdVKMTYhJq
+
 ## wordCountService()
 
 Calculates word counts in the string.
@@ -27,5 +29,19 @@ function sort_(a, b){
   else {
     return (a[1] > b[1]) ? -1 : 1;
   }
+}
+```
+
+## Documents Service
+
+Replace two and more spaces from the given docs
+
+```js
+function myFunction() {
+  Crumbs.getDosumentsService()
+  .addDocumentById('793ff6027d273a1e0115059a00260e8612d73098')
+  .addDocumentById('8f124d0e4668b6f38001d80f0149c9758f6c2d43')
+  .replaceText('[\t\n\f\r ]{2,}', ' ')
+  .saveAndClose();
 }
 ```
