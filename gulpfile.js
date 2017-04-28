@@ -2,7 +2,7 @@ var gulp = require('gulp');
 var del = require('del');
 var exec = require('child_process').exec;
 
-gulp.task('crumbs.build', ['crumbs.app'], function (cb) {
+gulp.task('crumbs.build', ['crumbs.src'], function (cb) {
   exec('cd ./Crumbs && gapps push | while read OUTPUT; do notify-send "$OUTPUT"; done', function (err, stdout, stderr) {
     console.log(stdout);
     console.log(stderr);
@@ -12,11 +12,11 @@ gulp.task('crumbs.build', ['crumbs.app'], function (cb) {
 
 gulp.task('crumbs.clean', function () {
   del([
-    'Crumbs/app/*'
+    'Crumbs/src/*'
   ]);
 });
 
-gulp.task('crumbs.app', ['crumbs.clean'], function () {
-  gulp.src('Crumbs/src/*')
-    .pipe(gulp.dest('Crumbs/app'));
+gulp.task('crumbs.src', ['crumbs.clean'], function () {
+  gulp.src('Crumbs/app/*')
+    .pipe(gulp.dest('Crumbs/src'));
 });

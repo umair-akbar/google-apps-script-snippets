@@ -45,3 +45,24 @@ function myFunction() {
   .saveAndClose();
 }
 ```
+
+## Cells Resizer
+
+Resize the cells of the sheet by a map
+
+```js
+function myFunction() {
+  var sheet = SpreadsheetApp.getActiveSheet();
+  var directions = {
+    vertical: [5, 70, 15, 40],
+    horizontal: [10, 150]
+  };
+
+  var cr = Crumbs.getCellsResizer(sheet);
+  cr.setMaxColumns(15)
+  .setMaxRows(15)
+  .resize(directions)
+  .cropSheetBySize()
+  .flush();
+}
+```
