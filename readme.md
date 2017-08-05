@@ -2,11 +2,12 @@
 This is a list of code fragments for the copy / paste tool on yours keyboard. I still don't know what to do about this. It would be great if you had an idea.
 
 ## Contents
-* [Spreadsheets](#Spreadsheets)
-  * [Common elements for spreadsheets]()
-    * [Round to day]()
-  * [Values and data]()
-    * [Append values to a sheet]()
+* [Spreadsheets](#spreadsheets)
+  * [Common elements for spreadsheets](#common-elements-for-spreadsheets)
+    * [Round to day](#round-to-day)
+  * [Values and data](#values-and-data)
+    * [Append values to a sheet](#append-values-to-a-sheet)
+* [License](#license)
 
 ## Spreadsheets
 
@@ -33,7 +34,12 @@ like [appendRow(rowContents)](https://developers.google.com/apps-script/referenc
 // Appends values to sheet
 function appendValues(sheet, values, colOffset){
   colOffset = colOffset || 1;
-  return sheet.getRange(sheet.getLastRow() + 1, colOffset, values.length, values[0].length).setValues(values);
+  return sheet.getRange(
+      sheet.getLastRow() + 1,
+      colOffset,
+      values.length, 
+      values[0].length
+    ).setValues(values);
 }
 ```
 
