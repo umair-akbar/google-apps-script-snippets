@@ -1,12 +1,15 @@
-<h1>Google Apps Script snippets</h1>
+# Google Apps Script snippets
 This is a list of code fragments for the copy / paste tool on yours keyboard. I still don't know what to do about this. It would be great if you had an idea.
 
-<h2>Contents</h2>
-<!-- TOC -->
+<!-- TOC depthFrom:2 -->
 
 - [Spreadsheets](#spreadsheets)
   - [Common elements for spreadsheets](#common-elements-for-spreadsheets)
     - [Round to day](#round-to-day)
+  - [Sheets](#sheets)
+    - [Get a sheet by index](#get-a-sheet-by-index)
+    - [Get a sheet by name](#get-a-sheet-by-name)
+    - [Get sheet by gid](#get-sheet-by-gid)
   - [Values and data](#values-and-data)
     - [Append values to a sheet](#append-values-to-a-sheet)
 - [License](#license)
@@ -25,6 +28,44 @@ function roundToDay_(date, offsetOfDays){
   offsetOfDays = offsetOfDays * 24 * 60 * 60 * 1000 || 0;
   var res_ = new Date(date.valueOf() + offsetOfDays);
   res_.setHours(0, 0, 0, 0);
+  return res_;
+}
+```
+### Sheets
+
+#### Get a sheet by index
+
+```js
+/**
+  Returns the sheet by index
+  @param {number} index A positive integer
+*/
+var sheet = spreadsheet.getSheets()[index];
+```
+
+#### Get a sheet by name
+
+```js
+//Always returns a sheet
+function getSheetByName(spreadsheet, sheetName){
+  var sheet = spreadsheet.getSheetByName(sheetName);
+  return sheet || spreadsheet.insertSheet(sheetName);
+}
+```
+
+#### Get sheet by gid
+
+```js
+function getSheetByGid(spreadsheet, gid){
+  gid = +gid || 0;
+  var res_ = undefined;
+  var sheets_ = spreadsheet.getSheets();
+  for(var i = sheets_.length; i--; ){
+    if(sheets_[i].getSheetId() === gid){
+      res_ = sheets_[i];
+      break;
+    }
+  }
   return res_;
 }
 ```
