@@ -1,13 +1,17 @@
-# Google Apps Script snippets
+<h1>Google Apps Script snippets</h1>
 This is a list of code fragments for the copy / paste tool on yours keyboard. I still don't know what to do about this. It would be great if you had an idea.
 
-## Contents
-* [Spreadsheets](#spreadsheets)
-  * [Common elements for spreadsheets](#common-elements-for-spreadsheets)
-    * [Round to day](#round-to-day)
-  * [Values and data](#values-and-data)
-    * [Append values to a sheet](#append-values-to-a-sheet)
-* [License](#license)
+<h2>Contents</h2>
+<!-- TOC -->
+
+- [Spreadsheets](#spreadsheets)
+  - [Common elements for spreadsheets](#common-elements-for-spreadsheets)
+    - [Round to day](#round-to-day)
+  - [Values and data](#values-and-data)
+    - [Append values to a sheet](#append-values-to-a-sheet)
+- [License](#license)
+
+<!-- /TOC -->
 
 ## Spreadsheets
 
