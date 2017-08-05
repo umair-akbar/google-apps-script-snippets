@@ -1,3 +1,30 @@
+<!-- TOC -->
+
+- [Google Apps Script Snippets](#google-apps-script-snippets)
+  - [Gists](#gists)
+  - [Spreadsheet (Class)](#spreadsheet-class)
+    - [getWorkSpreadsheet](#getworkspreadsheet)
+    - [cropSheetBySize(sheet, leftRows, topCols)](#cropsheetbysizesheet-leftrows-topcols)
+      - [Example](#example)
+    - [cropSheetByData(sheet)](#cropsheetbydatasheet)
+      - [Example](#example-1)
+    - [flushAndSleep(milliseconds)](#flushandsleepmilliseconds)
+    - [onOpen() Move to last cell in specific worksheet [Simple]](#onopen-move-to-last-cell-in-specific-worksheet-simple)
+    - [onOpen() Move to last cell in specific worksheet [Advanced]](#onopen-move-to-last-cell-in-specific-worksheet-advanced)
+  - [Spreradsheet (Arrays)](#spreradsheet-arrays)
+    - [mapSheetHeaders(headers)](#mapsheetheadersheaders)
+    - [Example](#example-2)
+  - [DriveApp](#driveapp)
+    - [moveFileToFolder(file, folder, stayRoot)](#movefiletofolderfile-folder-stayroot)
+    - [Example](#example-3)
+  - [Extends and override](#extends-and-override)
+    - [Short `Utilities.formatDate`](#short-utilitiesformatdate)
+    - [Short `Utilities.formatString`](#short-utilitiesformatstring)
+    - [getArray(length, defaultValue)](#getarraylength-defaultvalue)
+    - [Example](#example-4)
+  - [Pretty JSON in Logger](#pretty-json-in-logger)
+
+<!-- /TOC -->
 # Google Apps Script Snippets
 ## Gists
 - [The Modal Dialog][1] works longer than the Prompt.
@@ -88,14 +115,6 @@ function onOpen(){
   var uidsMap = sheets.reduce(function(p,c,i){p[c.getSheetId()]=i;return p;},{});
   var sheet = sheets[uidsMap[gid]];
   sheet.getRange(sheet.getLastRow(), 1).activate();
-}
-```
-### setValuesToSheet(sheet, values, row, column)
-```javascript
-function setValuesToSheet(sheet, values, row, column){
-  row = row || 1;
-  column = column || 1;
-  return sheet.getRange(1, 1, values.length, values[0].length).setValues(values);
 }
 ```
 ## Spreradsheet (Arrays)
