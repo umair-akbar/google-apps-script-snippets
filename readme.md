@@ -4,7 +4,8 @@ This is a list of code fragments for the copy / paste tool on yours keyboard. I 
 <!-- TOC depthFrom:2 -->
 
 - [Base Services](#base-services)
-  - [Pretty JSON in Logger](#pretty-json-in-logger)
+  - [Logger](#logger)
+    - [Pretty JSON in Logger](#pretty-json-in-logger)
 - [Spreadsheets](#spreadsheets)
   - [Common elements for spreadsheets](#common-elements-for-spreadsheets)
     - [Round to day](#round-to-day)
@@ -20,8 +21,10 @@ This is a list of code fragments for the copy / paste tool on yours keyboard. I 
 
 ## Base Services
 
-### Pretty JSON in Logger
-_example [/issues/3](/issues/3)_
+### Logger
+
+#### Pretty JSON in Logger
+_example [/issues/3](../../issues/3)_
 ```js
 function ll(){
   var args = [];
