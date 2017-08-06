@@ -22,7 +22,6 @@
     - [Short `Utilities.formatString`](#short-utilitiesformatstring)
     - [getArray(length, defaultValue)](#getarraylength-defaultvalue)
     - [Example](#example-4)
-  - [Pretty JSON in Logger](#pretty-json-in-logger)
 
 <!-- /TOC -->
 # Google Apps Script Snippets
@@ -177,14 +176,4 @@ function getArray(length, defaultValue){
 ```javascript
   var arr = getArray(5, '');
   //['', '', '', '', '']
-```
-## Pretty JSON in Logger
-```javascript
-  function ll(){
-    var args = [];
-    for (var i = 0; i < arguments.length; i++) {
-      args.push(typeof arguments[i] === 'object' ? JSON.stringify(arguments[i], null, ' ') : arguments[i]);
-    }
-    Logger.log.apply(Logger, args);
-  }
 ```
