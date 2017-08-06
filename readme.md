@@ -3,6 +3,8 @@ This is a list of code fragments for the copy / paste tool on yours keyboard. I 
 
 <!-- TOC depthFrom:2 -->
 
+- [Base Services](#base-services)
+  - [Pretty JSON in Logger](#pretty-json-in-logger)
 - [Spreadsheets](#spreadsheets)
   - [Common elements for spreadsheets](#common-elements-for-spreadsheets)
     - [Round to day](#round-to-day)
@@ -16,6 +18,21 @@ This is a list of code fragments for the copy / paste tool on yours keyboard. I 
 
 <!-- /TOC -->
 
+## Base Services
+
+### Pretty JSON in Logger
+_example [/issues/3](/issues/3)_
+```js
+function ll(){
+  var args = [];
+  for (var i = 0; i < arguments.length; i++) {
+    args.push(typeof arguments[i] === 'object' ? JSON.stringify(arguments[i], null, ' ') : arguments[i]);
+  }
+  if(typeof args[0] === 'string' && !/%s/.test(args[0]))
+    args.unshift(Array(args.length).join('\n%s'));
+  Logger.log.apply(Logger, args);
+}
+```
 ## Spreadsheets
 
 ### Common elements for spreadsheets
