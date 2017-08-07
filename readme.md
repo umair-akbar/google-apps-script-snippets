@@ -15,6 +15,7 @@ This is a list of code fragments for the copy / paste tool on yours keyboard. I 
     - [Get sheet by gid](#get-sheet-by-gid)
   - [Values and data](#values-and-data)
     - [Append values to a sheet](#append-values-to-a-sheet)
+    - [Insert values starting with row/column](#insert-values-starting-with-rowcolumn)
 - [License](#license)
 
 <!-- /TOC -->
@@ -105,6 +106,17 @@ function appendValues(sheet, values, colOffset){
       values.length, 
       values[0].length
     ).setValues(values);
+}
+```
+
+#### Insert values starting with row/column
+
+```js
+// Can be expanded by other methods
+function setValues(sheet, values, row, col){
+  row = row || 1;
+  col = col || 1;
+  sheet.getRange(row, col, values.length, values[0].length).setValues(values);
 }
 ```
 
