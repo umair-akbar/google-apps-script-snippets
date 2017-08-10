@@ -16,6 +16,9 @@ This is a list of code fragments for the copy / paste tool on yours keyboard. I 
   - [Values and data](#values-and-data)
     - [Append values to a sheet](#append-values-to-a-sheet)
     - [Insert values starting with row/column](#insert-values-starting-with-rowcolumn)
+- [Utilities](#utilities)
+  - [DigestAlgorithm](#digestalgorithm)
+    - [Compute a hash string](#compute-a-hash-string)
 - [License](#license)
 
 <!-- /TOC -->
@@ -117,6 +120,37 @@ function setValues(sheet, values, row, col){
   row = row || 1;
   col = col || 1;
   sheet.getRange(row, col, values.length, values[0].length).setValues(values);
+}
+```
+
+## Utilities
+
+### DigestAlgorithm
+
+#### Compute a hash string
+
+```js
+/**
+* Compute a hash string using the specified digest algorithm on the specified value.
+* @param {String} value The specified value.
+* @param {String} digestAlgorithm The name of Enum DigestAlgorithm: MD2, MD5, SHA_1, SHA_256, SHA_384, SHA_512
+* @param {String} charset The name of Enum Charset: US_ASCII, UTF_8.
+* @returns {String} The hash of value.
+*/
+
+function hash_(str, digestAlgorithm, charset) {
+  charset = charset || Utilities.Charset.US_ASCII.UTF_8;
+  digestAlgorithm = digestAlgorithm || 'MD5';
+  var digest = Utilities.computeDigest(Utilities.DigestAlgorithm[digestAlgorithm], str, charset);
+  var __ = '';
+  for (i = 0; i < digest.length; i++) {
+    var byte = digest[i];
+    if (byte < 0) byte += 256;
+    var bStr = byte.toString(16);
+    if (bStr.length == 1) bStr = '0' + bStr;
+    __ += bStr;
+  }
+  return __;
 }
 ```
 
