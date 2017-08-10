@@ -128,6 +128,7 @@ function setValues(sheet, values, row, col){
 ### DigestAlgorithm
 
 #### Compute a hash string
+_Example [/issue/8](../../issues/8)_
 
 ```js
 /**
