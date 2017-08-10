@@ -145,9 +145,10 @@ function hash_(str, digestAlgorithm, charset) {
   var digest = Utilities.computeDigest(Utilities.DigestAlgorithm[digestAlgorithm], str, charset);
   var __ = '';
   for (i = 0; i < digest.length; i++) {
-    var byte = digest[i];
-    if (byte < 0) byte += 256;
-    var bStr = byte.toString(16);
+    //var byte = digest[i];
+    //if (byte < 0) byte += 256;
+    //var bStr = byte.toString(16);
+    var bStr = (digest[i] < 0 ? digest[i] += 256 : digest[i]).toString(16);
     if (bStr.length == 1) bStr = '0' + bStr;
     __ += bStr;
   }
