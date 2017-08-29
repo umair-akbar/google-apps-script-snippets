@@ -18,7 +18,7 @@ This is a list of code fragments for the copy / paste tool on yours keyboard. I 
     - [Insert values starting with row/column](#insert-values-starting-with-rowcolumn)
 - [Utilities](#utilities)
   - [Blob](#blob)
-    - [Create a new Blob object from a string, content type, name and specific charsets.](#create-a-new-blob-object-from-a-string-content-type-name-and-specific-charsets)
+    - [Create a new Blob object from a string, content type, name and specific charsets](#create-a-new-blob-object-from-a-string-content-type-name-and-specific-charsets)
   - [DigestAlgorithm](#digestalgorithm)
     - [Compute a hash string](#compute-a-hash-string)
 - [License](#license)
@@ -129,7 +129,8 @@ function setValues(sheet, values, row, col){
 
 ### Blob
 
-#### Create a new Blob object from a string, content type, name and specific charsets.
+#### Create a new Blob object from a string, content type, name and specific charsets
+_Example [/issue/9](../../issues/9)_
 
 ```js
 function newBlobWithCharset(data, contentType, name, charset){
