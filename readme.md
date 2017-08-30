@@ -156,7 +156,7 @@ _Example [/issue/8](../../issues/8)_
 */
 
 function hash_(str, digestAlgorithm, charset) {
-  charset = charset || Utilities.Charset.US_ASCII.UTF_8;
+  charset = charset || Utilities.Charset.UTF_8;
   digestAlgorithm = digestAlgorithm || 'MD5';
   var digest = Utilities.computeDigest(Utilities.DigestAlgorithm[digestAlgorithm], str, charset);
   var __ = '';
