@@ -16,6 +16,8 @@ This is a list of code fragments for the copy / paste tool on yours keyboard. I 
   - [Values and data](#values-and-data)
     - [Append values to a sheet](#append-values-to-a-sheet)
     - [Insert values starting with row/column](#insert-values-starting-with-rowcolumn)
+- [Groups](#groups)
+    - [Check email in group](#check-email-in-group)
 - [Utilities](#utilities)
   - [Blob](#blob)
     - [Create a new Blob object from a string, content type, name and specific charsets](#create-a-new-blob-object-from-a-string-content-type-name-and-specific-charsets)
@@ -122,6 +124,20 @@ function setValues(sheet, values, row, col){
   row = row || 1;
   col = col || 1;
   sheet.getRange(row, col, values.length, values[0].length).setValues(values);
+}
+```
+
+## Groups
+#### Check email in group
+```js
+function isInGroup_(userEmail, groupEmail, level) {
+  level = level || 2;
+  try {
+    var group = GroupsApp.getGroupByEmail(groupEmail);
+    return [GroupsApp.Role.OWNER, GroupsApp.Role.MANAGER, GroupsApp.Role.MEMBER].indexOf(group.getRole(currentUser)) === level;
+  } catch (err) {
+    return false;
+  }
 }
 ```
 
