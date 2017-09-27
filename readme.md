@@ -23,6 +23,9 @@ This is a list of code fragments for the copy / paste tool on yours keyboard. I 
     - [Create a new Blob object from a string, content type, name and specific charsets](#create-a-new-blob-object-from-a-string-content-type-name-and-specific-charsets)
   - [DigestAlgorithm](#digestalgorithm)
     - [Compute a hash string](#compute-a-hash-string)
+- [HtmlService](#htmlservice)
+  - [Web application](#web-application)
+    - [Hide Google security warnings](#hide-google-security-warnings)
 - [License](#license)
 
 <!-- /TOC -->
@@ -185,6 +188,22 @@ function hash_(str, digestAlgorithm, charset) {
     __ += bStr;
   }
   return __;
+}
+```
+
+## HtmlService
+### Web application
+#### Hide Google security warnings
+
+```js
+//This is the magic header that allows this to be done with no particular Google security warnings
+function doGet(e) {
+  var hs = HtmlService
+  .createTemplateFromFile('html-template')
+  .evaluate()
+  .setTitle('My App')
+  .setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL);
+  return hs;
 }
 ```
 
