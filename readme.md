@@ -195,6 +195,24 @@ function hash_(str, digestAlgorithm, charset) {
 ### Web application
 #### Hide Google security warnings
 
+*On an external host*
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title></title>
+</head>
+
+<body>
+  <iframe src="https://script.google.com/macros/s/ABCD1234/exec"></iframe>
+</body>
+
+</html>
+```
+
+*The webapp*
 ```js
 //This is the magic header that allows this to be done with no particular Google security warnings
 function doGet(e) {
