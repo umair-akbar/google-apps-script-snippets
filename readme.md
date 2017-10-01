@@ -25,6 +25,7 @@ This is a list of code fragments for the copy / paste tool on yours keyboard. I 
     - [Compute a hash string](#compute-a-hash-string)
 - [HtmlService](#htmlservice)
   - [Web application](#web-application)
+    - [Responsive meta tag for the webapp](#responsive-meta-tag-for-the-webapp)
     - [Hide Google security warnings](#hide-google-security-warnings)
 - [License](#license)
 
@@ -193,6 +194,12 @@ function hash_(str, digestAlgorithm, charset) {
 
 ## HtmlService
 ### Web application
+#### Responsive meta tag for the webapp
+```js
+  HtmlService.createHtmlOutput('Hello world')
+  //Responsive
+  .addMetaTag('viewport', 'width=device-width, initial-scale=1')
+```
 #### Hide Google security warnings
 
 *On an external host*
