@@ -196,6 +196,7 @@ function hash_(str, digestAlgorithm, charset) {
 ## HtmlService
 ### Web application
 #### Responsive meta tag for the webapp
+https://plus.google.com/u/0/+MarcoColomboMow/posts/GXgRCh98HTu
 ```js
   HtmlService.createHtmlOutput('Hello world')
   //Responsive
