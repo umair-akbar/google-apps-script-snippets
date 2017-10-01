@@ -26,6 +26,7 @@ This is a list of code fragments for the copy / paste tool on yours keyboard. I 
 - [HtmlService](#htmlservice)
   - [Web application](#web-application)
     - [Responsive meta tag for the webapp](#responsive-meta-tag-for-the-webapp)
+    - [Google Site Verification for the webapp](#google-site-verification-for-the-webapp)
     - [Hide Google security warnings](#hide-google-security-warnings)
 - [License](#license)
 
@@ -199,6 +200,12 @@ function hash_(str, digestAlgorithm, charset) {
   HtmlService.createHtmlOutput('Hello world')
   //Responsive
   .addMetaTag('viewport', 'width=device-width, initial-scale=1')
+```
+#### Google Site Verification for the webapp
+```js
+  HtmlService.createHtmlOutput('Hello world')
+  //WEBMASTER TOOLS
+  .addMetaTag('google-site-verification', '<METATAG_FROM_WEBMASTER_TOOLS>')
 ```
 #### Hide Google security warnings
 
