@@ -6,6 +6,9 @@ This is a list of code fragments for the copy / paste tool on yours keyboard. I 
 - [Base Services](#base-services)
   - [Logger](#logger)
     - [Pretty JSON in Logger](#pretty-json-in-logger)
+- [DriveApp](#driveapp)
+  - [Basic file manipulations](#basic-file-manipulations)
+    - [Create a spreadsheet in the specific folder](#create-a-spreadsheet-in-the-specific-folder)
 - [Spreadsheets](#spreadsheets)
   - [Common elements for spreadsheets](#common-elements-for-spreadsheets)
     - [Round to day](#round-to-day)
@@ -48,6 +51,46 @@ function ll_(){
     args.unshift(Array(args.length + 1).join('\n%s'));
   Logger.log.apply(Logger, args);
 }
+```
+## DriveApp
+### Basic file manipulations
+#### Create a spreadsheet in the specific folder
+```js
+function example(){
+  createSpreadsheet('asdasd', '0Bztea6vSatozM2NiWGVGRzNvbTQ');
+  // Defaults
+  // createSpreadsheet('asdasdfasdf');
+}
+
+function createSpreadsheetRC(name, rows, columns, folder, add){
+  
+  var args = [name];
+  if(rows || columns){
+    args.push(rows || 1);
+    args.push(columns || 1);
+  }
+  
+  
+  var spreadsheet = SpreadsheetApp.create.apply(SpreadsheetApp, args);
+  
+  if(folder){
+    folder = typeof folder === 'object' ? folder : DriveApp.getFolderById(folder);
+    add = !!add;
+    
+    var child = DriveApp.getFileById(spreadsheet.getId());
+    
+    folder.addFile(child);
+    if(!add){
+      DriveApp.getRootFolder().removeFile(child);
+    }
+  }
+  return spreadsheet;
+}
+
+function createSpreadsheet(name, folder, add){
+  return createSpreadsheetRC(name, undefined, undefined, folder, add);
+}
+
 ```
 ## Spreadsheets
 
