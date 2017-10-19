@@ -45,10 +45,11 @@ _example [/issues/3](../../issues/3)_
 function ll_(){
   var args = [];
   for (var i = 0; i < arguments.length; i++) {
-    args.push(typeof arguments[i] === 'object' || typeof arguments[i] === 'function' ? ('' + JSON.stringify(arguments[i], null, ' ')) : ('' + arguments[i]));
+    args.push(typeof arguments[i] === 'object' ? ('' + JSON.stringify(arguments[i], null, '  ')) : ('' + arguments[i]));
   }
-  if(typeof args[0] === 'string' && !/%s/.test(args[0]))
-    args.unshift(Array(args.length + 1).join('\n%s'));
+  if(!/%s/.test(args[0])){
+    args.unshift(new Array(args.length).join('\n%s'));
+  }
   Logger.log.apply(Logger, args);
 }
 ```
