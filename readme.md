@@ -10,12 +10,13 @@ This is a list of code fragments for the copy / paste tool on yours keyboard. I 
   - [Basic file manipulations](#basic-file-manipulations)
     - [Create a spreadsheet in the specific folder](#create-a-spreadsheet-in-the-specific-folder)
 - [Spreadsheets](#spreadsheets)
-  - [Common elements for spreadsheets](#common-elements-for-spreadsheets)
+  - [Common snippets for spreadsheets](#common-snippets-for-spreadsheets)
     - [Round to day](#round-to-day)
   - [Sheets](#sheets)
     - [Get a sheet by index](#get-a-sheet-by-index)
     - [Get a sheet by name](#get-a-sheet-by-name)
     - [Get sheet by gid](#get-sheet-by-gid)
+    - [Get sheets associated with a Form](#get-sheets-associated-with-a-form)
   - [Values and data](#values-and-data)
     - [Append values to a sheet](#append-values-to-a-sheet)
     - [Insert values starting with row/column](#insert-values-starting-with-rowcolumn)
@@ -95,7 +96,7 @@ function createSpreadsheet(name, folder, add){
 ```
 ## Spreadsheets
 
-### Common elements for spreadsheets
+### Common snippets for spreadsheets
 
 #### Round to day
 
@@ -144,6 +145,19 @@ function getSheetByGid(spreadsheet, gid){
     }
   }
   return res_;
+}
+```
+
+#### Get sheets associated with a Form
+/*
+@denial Gets not associated
+*/
+```js
+function getAssociatedWithForm_(sheets, denial){
+  denial = !denial;
+  return sheets.filter(function(sheet){
+    return !!sheet.getFormUrl() === this.denial;
+  }, {denial: denial});
 }
 ```
 
