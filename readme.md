@@ -32,6 +32,7 @@ This is a list of code fragments for the copy / paste tool on yours keyboard. I 
     - [Responsive meta tag for the webapp](#responsive-meta-tag-for-the-webapp)
     - [Google Site Verification for the webapp](#google-site-verification-for-the-webapp)
     - [Hide Google security warnings](#hide-google-security-warnings)
+    - [Processing of POST data](#processing-of-post-data)
 - [License](#license)
 
 <!-- /TOC -->
@@ -297,7 +298,24 @@ function doGet(e) {
   return hs;
 }
 ```
-
+#### Processing of POST data
+```js
+function doPost(e) {
+  if (!e || !e.postData) {
+    e = {};
+    e.postData = {
+      getDataAsString: function() {
+        return {}
+      }
+    };
+  }
+  try {
+    console.log(JSON.parse(e.postData.getDataAsString()));
+  } catch (err) {
+    console.err(err);
+  }
+}
+```
 ## License
 
 [![CC0](http://mirrors.creativecommons.org/presskit/buttons/88x31/svg/cc-zero.svg)](https://creativecommons.org/publicdomain/zero/1.0/)
