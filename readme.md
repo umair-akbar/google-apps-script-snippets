@@ -20,6 +20,7 @@ This is a list of code fragments for the copy / paste tool on yours keyboard. I 
   - [Values and data](#values-and-data)
     - [Append values to a sheet](#append-values-to-a-sheet)
     - [Insert values starting with row/column](#insert-values-starting-with-rowcolumn)
+    - [copyTo](#copyto)
 - [Groups](#groups)
     - [Check email in group](#check-email-in-group)
 - [Utilities](#utilities)
@@ -188,6 +189,21 @@ function setValues(sheet, values, row, col){
   row = row || 1;
   col = col || 1;
   sheet.getRange(row, col, values.length, values[0].length).setValues(values);
+}
+```
+
+#### copyTo
+```js
+function fn(){
+  var source = SpreadsheetApp.openById("...").getRange("A1");
+  var destination = SpreadsheetApp.openById("...").getRange("A1");
+  copyTo(source, destination);
+}
+/*
+To avoid 'Target range and source range must be on the same spreadsheet'
+*/
+function copyTo(source, destination){
+  destination.setValues(source.getValues());
 }
 ```
 
