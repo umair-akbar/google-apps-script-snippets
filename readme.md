@@ -150,10 +150,10 @@ function getSheetByGid(spreadsheet, gid){
 ```
 
 #### Get sheets associated with a Form
+```js
 /*
 @denial Gets not associated
 */
-```js
 function getAssociatedWithForm_(sheets, denial){
   denial = !denial;
   return sheets.filter(function(sheet){
