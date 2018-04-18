@@ -21,7 +21,6 @@ function deleteRows_(sheet, condition){
       this.isContinue = 0;
     }
   }, {sheet: sheet, condition: condition, isContinue: 0, l: values.length});
-  
 }
 
 /**
@@ -32,6 +31,7 @@ function deleteRows_(sheet, condition){
 * @param {Number} index - The index of the current row. The DataRange is reversed!
 * @param {Array} array - The DataRange. The DataRange is reversed!
 **/
+```
 
 ## Examples
 ###  Removes rows if cells in D28:D77 and F28:F77 are empty together by a row
