@@ -17,6 +17,7 @@ This is a list of code fragments for the copy / paste tool on yours keyboard. I 
     - [Get a sheet by name](#get-a-sheet-by-name)
     - [Get sheet by gid](#get-sheet-by-gid)
     - [Get sheets associated with a Form](#get-sheets-associated-with-a-form)
+    - [Removes rows from a sheet according to the condition](./Spreadsheets/deleteRows.md)
   - [Values and data](#values-and-data)
     - [Append values to a sheet](#append-values-to-a-sheet)
     - [Insert values starting with row/column](#insert-values-starting-with-rowcolumn)
