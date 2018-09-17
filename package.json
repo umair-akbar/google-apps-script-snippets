@@ -20,5 +20,6 @@
     "gulp": "^3.9.1",
     "gulp-file-include": "^2.0.1",
     "jsdoc-to-markdown": "^4.0.1"
-  }
+  },
+  "dependencies": {}
 }
