@@ -1,5 +1,6 @@
 /* exported run */
 /* global console */
+
 /** @constant {string} FOLDER_ID The Folder ID */
 var FOLDER_ID = '{{FOLDER_ID}}';
 
@@ -19,7 +20,7 @@ function run() {
  * @param {string} newOwnerEmail The email
  * @returns {void}
  */
-function driveappChangeOwnerInFolder_(filderId, newOwnerEmail) {
+function driveappChangeOwnerInFolder_(folderId, newOwnerEmail) {
   var folder = DriveApp.getFolderById(folderId);
   var files = folder.getFiles();
   while (files.hasNext()) {
@@ -28,6 +29,7 @@ function driveappChangeOwnerInFolder_(filderId, newOwnerEmail) {
       file.setOwner(newOwnerEmail);
     } catch (err) {
       /* eslint no-console: "off" */
+      /* Don't do that */
       console.warn(err);
     }
   }
