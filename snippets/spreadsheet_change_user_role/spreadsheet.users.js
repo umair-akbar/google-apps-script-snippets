@@ -8,6 +8,7 @@ var EDITOR_EMAIL = '{{EDITOR_EMAIL}}';
 
 /**
  * Runs the example
+ * @ignore
  */
 function run() {
   changeUserRole_(SpreadsheetApp.openById(SPREADSHEET_ID), EDITOR_EMAIL);

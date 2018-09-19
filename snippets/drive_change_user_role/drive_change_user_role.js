@@ -9,6 +9,7 @@ var EMAIL = '{{EMAIL}}';
 
 /**
  * Runs the example
+ * @ignore
  */
 function run() {
   driveChangeMeRole_(FILE_ID, EMAIL);

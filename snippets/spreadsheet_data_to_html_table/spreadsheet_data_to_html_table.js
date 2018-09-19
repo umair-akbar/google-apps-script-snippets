@@ -5,6 +5,7 @@ var SPREADSHEET_ID = '{{YOUR_SPREADSHEET_ID}}';
 
 /**
  * Runs the example
+ * @ignore
  */
 function run() {
   var data = SpreadsheetApp.openById(SPREADSHEET_ID)

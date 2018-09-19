@@ -9,6 +9,7 @@ var EMAIL = '{{EMAIL}}';
 
 /**
  * Runs the example
+ * @ignore
  */
 function run() {
   driveappChangeOwnerInFolder_(FOLDER_ID, EMAIL);
