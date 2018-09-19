@@ -3,10 +3,10 @@
     prefer-rest-params: "off"
 */
 
-// https://tc39.github.io/ecma262/#sec-array.prototype.findIndex
-// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/findIndex
-if (!Array.prototype.findIndex) {
-  Object.defineProperty(Array.prototype, 'findIndex', {
+// https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/find
+// https://tc39.github.io/ecma262/#sec-array.prototype.find
+if (!Array.prototype.find) {
+  Object.defineProperty(Array.prototype, 'find', {
     value: function(predicate) {
       // 1. Let O be ? ToObject(this value).
       if (this == null) {
@@ -34,19 +34,17 @@ if (!Array.prototype.findIndex) {
         // a. Let Pk be ! ToString(k).
         // b. Let kValue be ? Get(O, Pk).
         // c. Let testResult be ToBoolean(? Call(predicate, T, « kValue, k, O »)).
-        // d. If testResult is true, return k.
+        // d. If testResult is true, return kValue.
         var kValue = o[k];
         if (predicate.call(thisArg, kValue, k, o)) {
-          return k;
+          return kValue;
         }
         // e. Increase k by 1.
         k++;
       }
 
-      // 7. Return -1.
-      return -1;
-    },
-    configurable: true,
-    writable: true
+      // 7. Return undefined.
+      return undefined;
+    }
   });
 }

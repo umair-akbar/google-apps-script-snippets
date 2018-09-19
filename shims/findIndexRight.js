@@ -1,9 +1,14 @@
+/* eslint
+    no-extend-native: ["error", { "exceptions": ["Array"] }]
+    prefer-rest-params: "off"
+*/
+
 // https://tc39.github.io/ecma262/#sec-array.prototype.findIndex
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/findIndex
 if (!Array.prototype.findIndex) {
   Object.defineProperty(Array.prototype, 'findIndex', {
     value: function(predicate) {
-     // 1. Let O be ? ToObject(this value).
+      // 1. Let O be ? ToObject(this value).
       if (this == null) {
         throw new TypeError('"this" is null or not defined');
       }
@@ -22,7 +27,7 @@ if (!Array.prototype.findIndex) {
       var thisArg = arguments[1];
 
       // 5. Let k be 0.
-      var k = len;
+      var k = len - 1;
 
       // 6. Repeat, while k < len
       while (k >= 0) {
