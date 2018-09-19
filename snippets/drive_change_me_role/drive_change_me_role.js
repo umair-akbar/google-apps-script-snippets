@@ -1,25 +1,27 @@
-/* exported SPREADSHEET_ID, EDITOR_EMAIL, run */
+/* exported run */
 /* global Drive */
 
 /** @constant {string} FILE_ID The File ID */
-var FILE_ID = '{{YOUR_FILE_ID}}';
+var FILE_ID = '{{FILE_ID}}';
+
+/** @constant {string} EMAIL The email */
+var EMAIL = '{{EMAIL}}';
 
 /**
  * Runs the example
- * You must be a non-owner
  */
 function run() {
-  driveChangeMeRole_(FILE_ID);
+  driveChangeMeRole_(FILE_ID, EMAIL);
 }
 
 /**
  * Downgrade you in the rights from the editor to the viewer
- * @param {string} fileId
+ * @param {string} fileId The file id
+ * @param {string} email You can pass your email and downgrade youself
  * @returns {void}
  */
-function driveChangeMeRole_(fileId) {
-  var me = Session.getActiveUser().getEmail();
-  var permissionId = Drive.Permissions.getIdForEmail(me);
+function driveChangeMeRole_(fileId, email) {
+  var permissionId = Drive.Permissions.getIdForEmail(email);
   var resource = Drive.newPermission();
   resource.role = 'reader';
   /* You can stay as a commenter
