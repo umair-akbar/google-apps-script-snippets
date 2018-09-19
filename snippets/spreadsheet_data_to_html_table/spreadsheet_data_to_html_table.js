@@ -18,21 +18,10 @@ function run() {
 /**
  * Create HTML table from a 2d Array
  * @param {object[][]} data The Spreadsheet data
- * @param {string} email
  * @returns {string} HTML-string
  */
-function dataToHtmltable_(data, datesFormat) {
-  datesFormat = datesFormat || 'yyyy-MM-dd';
-  var tz = Session.getScriptTimeZone();
-  var data_ = data.map(function(row) {
-    return row.map(function(cell) {
-      return cell && cell.getTime
-        ? Utilities.formatDate(cell, tz, datesFormat)
-        : cell;
-    });
-  });
-
-  return JSON.stringify(data_, null, '  ')
+function dataToHtmltable_(data) {
+  return JSON.stringify(data, null, '  ')
     .replace(/^\[/g, '<table>')
     .replace(/\]$/g, '</table>')
     .replace(/^\s\s\[$/gm, '<tr>')
