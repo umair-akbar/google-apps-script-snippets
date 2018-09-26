@@ -15,6 +15,7 @@
         "prettier/prettier": "error",
         "no-var": "off",
         "valid-jsdoc": "off",
-        "require-jsdoc": "off"
+        "require-jsdoc": "off",
+        "prefer-rest-params": "off"
     }
 }
