@@ -22,7 +22,7 @@ gulp.task('fileinclude', function() {
 gulp.task('docs', function() {
   return gulp
     .src('snippets/*/*.js')
-    .pipe(concat('readme.md'))
+    .pipe(concat('docs.md'))
     .pipe(gulpJsdoc2md())
     .on('error', function(err) {
       gutil.log('jsdoc2md failed:', err.message);
