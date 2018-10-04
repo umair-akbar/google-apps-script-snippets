@@ -45,7 +45,7 @@
 <dt><a href="#dataToHtmltable_">dataToHtmltable_(data)</a> ⇒ <code>string</code></dt>
 <dd><p>Create HTML table from a 2d Array</p>
 </dd>
-<dt><a href="#deleteRows">deleteRows(sheet, condition)</a></dt>
+<dt><a href="#deleteRowsByConditional_">deleteRowsByConditional_(sheet, condition)</a></dt>
 <dd><p>Removes rows from a sheet according to the condition</p>
 </dd>
 </dl>
@@ -161,9 +161,9 @@ Create HTML table from a 2d Array
 | --- | --- | --- |
 | data | <code>Array.&lt;Array.&lt;object&gt;&gt;</code> | The Spreadsheet data |
 
-<a name="deleteRows"></a>
+<a name="deleteRowsByConditional_"></a>
 
-## deleteRows(sheet, condition)
+## deleteRowsByConditional_(sheet, condition)
 Removes rows from a sheet according to the condition
 
 **Kind**: global function  
@@ -175,8 +175,12 @@ Removes rows from a sheet according to the condition
 
 **Example**  
 ```js
-// returns 2
-deleteRows(5, 10);
+// Removes all rows where B column contains 10
+deleteRowsByConditional_(SpreadsheetApp.getActiveSheet(),
+  function(currentValue){
+    return currentValue[1] === 10;
+  }
+);
 ```
 <a name="conditionCallback"></a>
 

@@ -12,6 +12,7 @@
     "copy:cbound:sheet": "rsync -avrh --progress ./settings/container-bound-sheet-script-example/.clasp.json ./ ",
     "copy:cbound:doc": "rsync -avrh --progress ./settings/container-bound-doc-script-example/.clasp.json ./",
     "push": "clasp push",
+    "docs": "gulp docs",
     "deploy:standalone": "npm run clear && npm run copy && npm run push && npm run clear:after && exit 0",
     "deploy:cbound:sheet": "npm run clear:before && npm run copy:dist && npm run copy:cbound:sheet && npm run push; npm run clear:after"
   },
