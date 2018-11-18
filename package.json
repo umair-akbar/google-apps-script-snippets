@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "deploySnippet": "gulp develop --path",
     "clear:before": "rm -rf ./dist/*",
     "clear:after": "rm ./.clasp.json",
     "copy:dist": "rsync -avrh --progress $DEST ./dist",
@@ -29,18 +30,21 @@
   "devDependencies": {
     "@google/clasp": "^1.6.3",
     "@types/google-apps-script": "0.0.27",
+    "del": "^3.0.0",
     "eslint": "^5.9.0",
     "eslint-config-google": "^0.10.0",
     "eslint-config-prettier": "^3.3.0",
     "eslint-plugin-googleappsscript": "^1.0.1",
     "eslint-plugin-prettier": "^2.7.0",
+    "event-stream": "^4.0.1",
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.1",
     "gulp-file-include": "^2.0.1",
     "gulp-jsdoc-to-markdown": "^1.2.2",
     "gulp-util": "^3.0.8",
     "jsdoc-to-markdown": "^4.0.1",
-    "prettier": "^1.15.2"
+    "prettier": "^1.15.2",
+    "run-sequence": "^2.2.1"
   },
   "dependencies": {}
 }

@@ -1,0 +1,6 @@
+{
+  "type": "standalone",
+  "src": [
+    "./shims/Array.find.js"
+  ]
+}
