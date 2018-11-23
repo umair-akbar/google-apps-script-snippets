@@ -2,7 +2,7 @@
 
 /**
  * @param {string} from The ID of a Document with the inlineImage
- * @param {*} index The index of the inlineImage. Starts from 1
+ * @param {number} index The index of the inlineImage. Starts from 1
  */
 function getBlobImageByIndexFromDoc_(from, index) {
   var template =
