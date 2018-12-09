@@ -71,7 +71,7 @@ gulp.task('clasp', function (cb) {
 gulp.task('develop', function (done) {
   runSequence('br', 'clasp', function () {
     // console.log('Run something else');
-    del('./.clasp.json');
+    // del('./.clasp.json');
     done();
   });
 });
