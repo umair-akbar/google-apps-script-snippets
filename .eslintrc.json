@@ -17,5 +17,8 @@
         "valid-jsdoc": "off",
         "require-jsdoc": "off",
         "prefer-rest-params": "off"
+    },
+    "globals": {
+        "Sheets": true
     }
 }
