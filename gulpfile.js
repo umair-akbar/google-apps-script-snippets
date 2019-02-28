@@ -36,10 +36,12 @@ gulp.task('docs', function () {
 });
 
 gulp.task('br', function () {
+  // console.log(process.argv[4]);
   var snippet = `${path.normalize(process.argv[4])}/`;
   var config = JSON.parse(fs.readFileSync(path.join(snippet, 'config.json')));
+  console.log(snippet);
   del.sync('./dist/');
-  var src = [`${snippet}*.js`, `${snippet}appsscript.json`];
+  var src = [`${snippet}*.js`, `${snippet}*.ts`, `${snippet}*.html`, `${snippet}appsscript.json`];
   var clasp_config = '';
   switch (config.type) {
     case 'standalone':
@@ -49,7 +51,7 @@ gulp.task('br', function () {
       clasp_config = './settings/container-bound-sheet-script-example/.clasp.json';
       break;
     default:
-      throw new Error('type requeried');
+      throw new Error('USER CONFIG ERROR: type requeried');
       break;
   }
   if (config.src) src = src.concat(config.src);
@@ -69,7 +71,7 @@ gulp.task('clasp', function (cb) {
 });
 
 gulp.task('develop', function (done) {
-  runSequence('br', 'clasp', function () {
+  runSequence('br', function () {
     // console.log('Run something else');
     // del('./.clasp.json');
     done();
