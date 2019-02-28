@@ -73,7 +73,7 @@ function importFromCSV_(csvId, spreadsheetId, sheetId) {
 
   var batchUpdateSpreadsheetResponse = batchUpdateSpreadsheet_(
     {
-      updateCells: updateCellsRequest
+      pasteData: pasteDataRequest
     },
     spreadsheetId
   );
