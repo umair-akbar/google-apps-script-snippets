@@ -1,14 +1,14 @@
-/* exported joinDataFromMultipleSheets_, example1, example2 */
+/* exported collectDataFromMultipleSheets_, example1, example2 */
 
 /**
- * Join data from multiple sheets
+ * Collect data from multiple sheets
  *
  * @param {GoogleAppsScript.Spreadsheet.Sheet[]} sheets The list of sheets
- * @param {joinDataReducerCallback} reducer The callback that handles data of sheets
+ * @param {collectDataReducerCallback} reducer The callback that handles data of sheets
  * @param {object[]} [headers=[]] The expected headers
  */
 
-function joinDataFromMultipleSheets_(sheets, reducer, headers) {
+function collectDataFromMultipleSheets_(sheets, reducer, headers) {
   var headers_;
   if (!headers || !headers.length) {
     headers_ = [];
@@ -39,7 +39,7 @@ function joinDataFromMultipleSheets_(sheets, reducer, headers) {
  */
 function example1() {
   var activeSpreadsheet = SpreadsheetApp.getActive();
-  var data = joinDataFromMultipleSheets_(activeSpreadsheet.getSheets());
+  var data = collectDataFromMultipleSheets_(activeSpreadsheet.getSheets());
   Logger.log(data);
 }
 
@@ -68,7 +68,7 @@ function example2() {
     }
     return accumulator;
   };
-  var data = joinDataFromMultipleSheets_(
+  var data = collectDataFromMultipleSheets_(
     activeSpreadsheet.getSheets(),
     reducer,
     headers
@@ -82,7 +82,7 @@ function example2() {
 
 /**
  * This callback is displayed as a global member.
- * @callback joinDataReducerCallback
+ * @callback collectDataReducerCallback
  * @param {object[][]} accumulator Accumulates data
  * @param {GoogleAppsScript.Spreadsheet.Sheet} sheet The current sheet of an iteration
  * @param {number} index The index of an iteration
