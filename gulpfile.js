@@ -35,7 +35,7 @@ gulp.task('docs', function () {
     .pipe(gulp.dest('snippets'));
 });
 
-gulp.task('br', function () {
+gulp.task('br', function (done) {
   // console.log(process.argv[4]);
   var snippet = `${path.normalize(process.argv[4])}/`;
   var config = JSON.parse(fs.readFileSync(path.join(snippet, 'config.json')));
@@ -70,10 +70,6 @@ gulp.task('clasp', function (cb) {
   });
 });
 
-gulp.task('develop', function (done) {
-  runSequence('br', function () {
-    // console.log('Run something else');
-    // del('./.clasp.json');
-    done();
-  });
-});
+gulp.task('develop', gulp.series('br', function (done) {
+  done();
+}));

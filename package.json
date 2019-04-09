@@ -28,10 +28,10 @@
   },
   "homepage": "https://github.com/oshliaer/google-apps-script-snippets#readme",
   "devDependencies": {
-    "@google/clasp": "^2.0.1",
-    "@types/google-apps-script": "0.0.27",
+    "@google/clasp": "^2.1.0",
+    "@types/google-apps-script": "0.0.43",
     "del": "^3.0.0",
-    "eslint": "^5.15.1",
+    "eslint": "^5.16.0",
     "eslint-config-google": "^0.10.0",
     "eslint-config-prettier": "^3.6.0",
     "eslint-plugin-googleappsscript": "^1.0.1",
