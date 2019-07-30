@@ -1,6 +1,7 @@
 # Snippets
 
-## Install
+## Runs
 
-- Setup your `.clasp.json` file
-- `$> DEST=./snippets/drive_change_me_role/ npm run deploy:example`
+```sh
+$> npm run devsnip ./snippets/standalone_parse-html-table && npx clasp push
+```

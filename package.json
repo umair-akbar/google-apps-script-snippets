@@ -1,21 +1,12 @@
 {
   "name": "google-apps-script-snippets",
-  "version": "1.0.0",
+  "version": "1.1.1",
   "description": "Google Apps Script Snippets",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "deploySnippet": "gulp develop --path",
-    "clear:before": "rm -rf ./dist/*",
-    "clear:after": "rm ./.clasp.json",
-    "copy:dist": "rsync -avrh --progress $DEST ./dist",
-    "copy:standalone": "rsync -avrh --progress ./settings/standalone-script-example/.clasp.json ./",
-    "copy:cbound:sheet": "rsync -avrh --progress ./settings/container-bound-sheet-script-example/.clasp.json ./ ",
-    "copy:cbound:doc": "rsync -avrh --progress ./settings/container-bound-doc-script-example/.clasp.json ./",
-    "push": "clasp push",
-    "docs": "gulp docs",
-    "deploy:standalone": "npm run clear && npm run copy && npm run push && npm run clear:after && exit 0",
-    "deploy:cbound:sheet": "npm run clear:before && npm run copy:dist && npm run copy:cbound:sheet && npm run push; npm run clear:after"
+    "devsnip": "gulp develop --path",
+    "ds": "gulp develop --path"
   },
   "repository": {
     "type": "git",
@@ -28,23 +19,21 @@
   },
   "homepage": "https://github.com/oshliaer/google-apps-script-snippets#readme",
   "devDependencies": {
-    "@google/clasp": "^2.1.0",
-    "@types/google-apps-script": "0.0.43",
-    "del": "^3.0.0",
-    "eslint": "^5.16.0",
-    "eslint-config-google": "^0.10.0",
-    "eslint-config-prettier": "^3.6.0",
-    "eslint-plugin-googleappsscript": "^1.0.1",
-    "eslint-plugin-prettier": "^2.7.0",
-    "event-stream": "^4.0.1",
-    "gulp": "^4.0.0",
-    "gulp-concat": "^2.6.1",
-    "gulp-file-include": "^2.0.1",
-    "gulp-jsdoc-to-markdown": "^1.2.2",
-    "gulp-util": "^3.0.8",
-    "jsdoc-to-markdown": "^4.0.1",
-    "prettier": "^1.16.4",
-    "run-sequence": "^2.2.1"
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@google/clasp": "^2.2.1",
+    "@types/google-apps-script": "0.0.54",
+    "babel-plugin-transform-es5-property-mutators": "^6.24.1",
+    "del": "^5.0.0",
+    "eslint": "^6.1.0",
+    "eslint-config-google": "^0.13.0",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-plugin-googleappsscript": "^1.0.3",
+    "eslint-plugin-prettier": "^3.1.0",
+    "got": "^9.6.0",
+    "gulp": "^4.0.2",
+    "merge-stream": "^2.0.0",
+    "prettier": "^1.18.2"
   },
   "dependencies": {
     "jaro-winkler": "^0.2.8"
