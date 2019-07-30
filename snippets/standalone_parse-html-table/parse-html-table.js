@@ -29,10 +29,10 @@ function userActionRun() {
 }
 
 /**
- * Plaseholder
+ * Placeholder
  * @type {string}
  */
-var PALSEHOLDER = '-- Better email me: oshli.a.er@gmail.com --';
+var PLACEHOLDER = '-- Better email me: oshli.a.er@gmail.com --';
 
 /**
  * Parses the first html-table from the content. max 7 columns
@@ -61,9 +61,9 @@ function parseHtmlTableToArray_(content) {
           }
           return p;
         }, [])
-        .join(PALSEHOLDER) + PALSEHOLDER.repeat(7)
+        .join(PLACEHOLDER) + PLACEHOLDER.repeat(7)
     )
-      .split(PALSEHOLDER)
+      .split(PLACEHOLDER)
       .slice(0, 7);
   });
 }
