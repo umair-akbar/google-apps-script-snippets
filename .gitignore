@@ -2,3 +2,4 @@ node_modules/
 dist/
 .clasprc.json
 drafts/
+.clasp.json
