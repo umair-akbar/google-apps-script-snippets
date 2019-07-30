@@ -701,4 +701,4 @@
 
 // -- https://github.com/oshliaer/google-apps-script-snippets --
 // })(window)
-})(this);
+})(typeof global !== 'undefined' ? global : (typeof window !== 'undefined' ? window : this));

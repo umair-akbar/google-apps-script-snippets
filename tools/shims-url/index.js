@@ -27,7 +27,7 @@ const transform = code => {
       /\/\/ feature detect for URL constructor[\s\S]+\s*if\s*\(hasWorkingUrl\)\s*return;/,
       `\n${clap}\n/* $& */`
     )
-    .replace(/(}\)\(window\))/, `\n${clap}\n// $&\n})(this)`);
+    .replace(/(}\)\(window\))/, `\n${clap}\n// $&\n})(typeof global !== 'undefined' ? global : (typeof window !== 'undefined' ? window : this))`);
 };
 
 const main = async () => {
