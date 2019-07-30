@@ -33,7 +33,7 @@ gulp.task('br', function(done) {
   }
   if (config.src) src = src.concat(config.src);
   var dist = gulp.src(src).pipe(gulp.dest('./dist'));
-  var clcfn = gulp.src(clasp_config).pipe(gulp.dest('./dist'));
+  var clcfn = gulp.src(clasp_config).pipe(gulp.dest('./'));
   return ms(dist, clcfn);
 });
 
