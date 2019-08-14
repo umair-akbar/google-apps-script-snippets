@@ -24,8 +24,9 @@ function paintingSpecificCharacters_(range, char, color) {
   textStyleBuilder.setForegroundColor(color);
   var textStyle = textStyleBuilder.build();
   var length = char.length;
-  var values = range.getValues().map(function(row) {
-    return row.map(function(value) {
+  var richTextValues = range.getRichTextValues().map(function(row) {
+    return row.map(function(richTextValue) {
+      var value = richTextValue.getText();
       var richTextBuilder = SpreadsheetApp.newRichTextValue();
       richTextBuilder.setText(value);
       var indexOf = value.indexOf(char);
@@ -37,5 +38,5 @@ function paintingSpecificCharacters_(range, char, color) {
     });
   });
 
-  range.setRichTextValues(values);
+  range.setRichTextValues(richTextValues);
 }
