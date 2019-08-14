@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "devsnip": "gulp develop --path",
-    "ds": "gulp develop --path"
+    "ds": "gulp develop --path",
+    "dsw": "gulp watch --path"
   },
   "repository": {
     "type": "git",
