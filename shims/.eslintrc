@@ -1,0 +1,14 @@
+{
+  "extends": ["eslint:recommended", "google", "plugin:prettier/recommended"],
+  "plugins": ["prettier"],
+  "env": {},
+  "rules": {
+    "prettier/prettier": "error",
+    "no-var": "off",
+    "no-unused-vars": ["error", { "varsIgnorePattern": "hslToHex" }],
+    "valid-jsdoc": "error",
+    "require-jsdoc": "error",
+    "prefer-rest-params": "off"
+  },
+  "globals": {}
+}

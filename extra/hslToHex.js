@@ -9,8 +9,6 @@
  * @returns {string} The HEX representation
  */
 
-/* exported hslToHex */
-
 var hslToHex = function(h, s, l) {
   var hue2rgb = function(p, q, t) {
     if (t < 0) t += 1;
