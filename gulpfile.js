@@ -1,39 +1,39 @@
 'use strict';
-/* global require */
-var fs = require('fs');
-var path = require('path');
-var gulp = require('gulp');
-var del = require('del');
-var exec = require('child_process').exec;
-var ms = require('merge-stream');
+const fs = require('fs');
+const path = require('path');
+const gulp = require('gulp');
+const del = require('del');
+const exec = require('child_process').exec;
+const ms = require('merge-stream');
 
 gulp.task('br', function(done) {
-  // console.log(process.argv[4]);
-  var snippet = `${path.normalize(process.argv[4])}/`;
-  var config = JSON.parse(fs.readFileSync(path.join(snippet, 'config.json')));
+  console.log(process.argv[4]);
+  console.log('process.argv', process.argv);
+  const snippet = `${path.normalize(process.argv[4])}/`;
+  const config = JSON.parse(fs.readFileSync(path.join(snippet, 'config.json')));
   console.log(snippet);
   del.sync('./dist/');
-  var src = [
+  let src = [
     `${snippet}*.js`,
     `${snippet}*.ts`,
     `${snippet}*.html`,
     `${snippet}appsscript.json`
   ];
-  var clasp_config = '';
+  let claspConfig = '';
   switch (config.type) {
     case 'standalone':
-      clasp_config = './settings/standalone-script-example/.clasp.json';
+      claspConfig = './settings/standalone-script-example/.clasp.json';
       break;
     case 'container-bound-sheet':
-      clasp_config =
+      claspConfig =
         './settings/container-bound-sheet-script-example/.clasp.json';
       break;
     default:
       throw new Error('USER CONFIG ERROR: type requeried');
   }
   if (config.src) src = src.concat(config.src);
-  var dist = gulp.src(src).pipe(gulp.dest('./dist'));
-  var clcfn = gulp.src(clasp_config).pipe(gulp.dest('./'));
+  const dist = gulp.src(src).pipe(gulp.dest('./dist'));
+  const clcfn = gulp.src(claspConfig).pipe(gulp.dest('./'));
   return ms(dist, clcfn);
 });
 
@@ -46,4 +46,11 @@ gulp.task('clasp', function(cb) {
   });
 });
 
-gulp.task('develop', gulp.series('br'));
+gulp.task('develop', gulp.series('br', 'clasp'));
+
+gulp.task('watch', function() {
+  gulp.watch(
+    ['./{snippets,extra,shims}/**/*.{js,gs,json,html}'],
+    gulp.series('br', 'clasp')
+  );
+});
