@@ -1,5 +1,5 @@
-node_modules/
-dist/
-.clasprc.json
-drafts/
 .clasp.json
+.clasprc.json
+dist/
+drafts/
+node_modules/
