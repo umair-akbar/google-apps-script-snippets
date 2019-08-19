@@ -3,7 +3,10 @@ const fs = require('fs');
 const path = require('path');
 const gulp = require('gulp');
 const del = require('del');
-const exec = require('child_process').exec;
+
+// https://stackoverflow.com/questions/29511491,
+// https://gist.github.com/rmckeel/b4e60922f5098ced9c50bdd96731b34a
+const spawn = require('child_process').spawn;
 const ms = require('merge-stream');
 
 gulp.task('br', function(done) {
@@ -28,6 +31,10 @@ gulp.task('br', function(done) {
       claspConfig =
         './settings/container-bound-sheet-script-example/.clasp.json';
       break;
+    case 'container-bound-form':
+      claspConfig =
+        './settings/container-bound-form-script-example/.clasp.json';
+      break;
     default:
       throw new Error('USER CONFIG ERROR: type requeried');
   }
@@ -39,10 +46,12 @@ gulp.task('br', function(done) {
 
 gulp.task('clasp', function(cb) {
   cb = cb || console.log;
-  exec('./node_modules/.bin/clasp push', function(err, stdout, stderr) {
-    console.log(stdout);
-    console.log(stderr);
-    cb(err);
+  const cmd = spawn('./node_modules/.bin/clasp', ['push'], {
+    stdio: 'inherit'
+  });
+  cmd.on('close', function(code) {
+    console.log('clasp exited with code ' + code);
+    cb(code);
   });
 });
 
@@ -50,7 +59,7 @@ gulp.task('develop', gulp.series('br', 'clasp'));
 
 gulp.task('watch', function() {
   gulp.watch(
-    ['./{snippets,extra,shims}/**/*.{js,gs,json,html}'],
+    ['./{snippets,extra,shims,drafts}/**/*.{js,gs,json,html}'],
     gulp.series('br', 'clasp')
   );
 });

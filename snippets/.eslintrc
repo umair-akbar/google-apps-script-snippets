@@ -7,7 +7,7 @@
   "rules": {
     "prettier/prettier": "error",
     "no-var": "off",
-    "no-unused-vars": ["error", { "varsIgnorePattern": "run.*" }],
+    "no-unused-vars": ["error", { "varsIgnorePattern": "[on|run]*" }],
     "valid-jsdoc": "error",
     "require-jsdoc": "error",
     "prefer-rest-params": "off"
