@@ -1,5 +1,4 @@
 /* exported run */
-/* global Drive */
 
 /** @constant {string} FILE_ID The File ID */
 var FILE_ID = '{{FILE_ID}}';

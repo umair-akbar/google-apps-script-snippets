@@ -1,5 +1,4 @@
 /* exported run */
-/* global console */
 
 /** @constant {string} FOLDER_ID The Folder ID */
 var FOLDER_ID = '{{FOLDER_ID}}';
