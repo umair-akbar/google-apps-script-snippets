@@ -19,7 +19,7 @@ function run() {
  * Changes the owner for all files in a folder
  * @param {string} folderId The folder id
  * @param {string} newOwnerEmail The email
- * @returns {void}
+ * @return {void}
  */
 function driveappChangeOwnerInFolder_(folderId, newOwnerEmail) {
   var folder = DriveApp.getFolderById(folderId);

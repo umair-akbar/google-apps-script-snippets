@@ -5,7 +5,7 @@
  *
  * @param {GoogleAppsScript.Spreadsheet.Sheet} from Source sheet
  * @param {GoogleAppsScript.Spreadsheet.Sheet} to Destination sheet
- * @returns {undefined}
+ * @return {undefined}
  */
 
 function copyValuesBetweenTwoSheets_(from, to) {

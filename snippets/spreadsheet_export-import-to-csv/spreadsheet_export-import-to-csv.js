@@ -98,7 +98,7 @@ function exportToCSV_(csvId, spreadsheetId, sheetId) {
  *
  * @param {object} request Request object
  * @param {string} spreadsheetId Spreadsheet Id
- * @returns {object} BatchUpdateSpreadsheetResponse
+ * @return {object} BatchUpdateSpreadsheetResponse
  */
 function batchUpdateSpreadsheet_(request, spreadsheetId) {
   var resource = {

@@ -3,7 +3,7 @@
  * @param {string} s1
  * @param {string} s2
  * @param {boolean} caseSensetive
- * @returns {number}
+ * @return {number}
  * @customfunction
  */
 function DISTANCE_JW(s1, s2, caseSensetive) {

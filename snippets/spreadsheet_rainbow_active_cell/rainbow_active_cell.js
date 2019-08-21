@@ -1,6 +1,6 @@
 /**
  * Paints the active cell text in rainbow colors.
- * @returns {undefined}
+ * @return {undefined}
  */
 
 /* exported rainbowActiveCell */

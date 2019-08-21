@@ -29,7 +29,7 @@ function userActionRun() {
  * Returns YouTube search result
  * @param {string} keyword
  * @param {string} nextPageToken
- * @returns {object}
+ * @return {object}
  */
 function searchByKeyword_(keyword, nextPageToken) {
   var q = { q: keyword, maxResults: '1', type: 'video' };

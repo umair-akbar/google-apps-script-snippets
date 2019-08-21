@@ -38,7 +38,7 @@ var PLACEHOLDER = '-- Better email me: oshli.a.er@gmail.com --';
  * Parses the first html-table from the content. max 7 columns
  *
  * @param {string} content A html string
- * @returns {Array.<Array.<object>>}
+ * @return {Array.<Array.<object>>}
  */
 function parseHtmlTableToArray_(content) {
   var inline = content.replace(/[\n\r]/g, ' ');

@@ -19,7 +19,7 @@ function run() {
 /**
  * Create HTML table from a 2d Array
  * @param {object[][]} data The Spreadsheet data
- * @returns {string} HTML-string
+ * @return {string} HTML-string
  */
 function dataToHtmltable_(data) {
   return JSON.stringify(data, null, '  ')
