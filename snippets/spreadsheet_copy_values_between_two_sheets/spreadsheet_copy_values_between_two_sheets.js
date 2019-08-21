@@ -7,7 +7,6 @@
  * @param {GoogleAppsScript.Spreadsheet.Sheet} to Destination sheet
  * @return {undefined}
  */
-
 function copyValuesBetweenTwoSheets_(from, to) {
   var values = from.getRange('A2:D').getValues();
 
@@ -18,7 +17,6 @@ function copyValuesBetweenTwoSheets_(from, to) {
 /**
  * Example
  */
-
 function example1() {
   var from = SpreadsheetApp.openById(
     '1fAEqgLX2S94qbGEP0cNSOhMb8VLn9Izz59vMbT7VQJU'
