@@ -249,7 +249,7 @@ _Example [/issue/8](../../issues/8)_
 * @param {String} value The specified value.
 * @param {String} digestAlgorithm The name of Enum DigestAlgorithm: MD2, MD5, SHA_1, SHA_256, SHA_384, SHA_512
 * @param {String} charset The name of Enum Charset: US_ASCII, UTF_8.
-* @returns {String} The hash of value.
+* @return {String} The hash of value.
 */
 
 function hash_(str, digestAlgorithm, charset) {

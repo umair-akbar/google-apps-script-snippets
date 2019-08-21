@@ -69,7 +69,7 @@
      * Returns the first value associated to the given search parameter.
      *
      * @param {string} name
-     * @returns {string|null}
+     * @return {string|null}
      */
     prototype.get = function(name) {
         var dict = this [__URLSearchParams__];
@@ -80,7 +80,7 @@
      * Returns all the values association with a given search parameter.
      *
      * @param {string} name
-     * @returns {Array}
+     * @return {Array}
      */
     prototype.getAll = function(name) {
         var dict = this [__URLSearchParams__];
@@ -91,7 +91,7 @@
      * Returns a Boolean indicating if such a search parameter exists.
      *
      * @param {string} name
-     * @returns {boolean}
+     * @return {boolean}
      */
     prototype.has = function(name) {
         return name in this [__URLSearchParams__];
@@ -112,7 +112,7 @@
     /**
      * Returns a string containg a query string suitable for use in a URL.
      *
-     * @returns {string}
+     * @return {string}
      */
     prototype.toString = function() {
         var dict = this[__URLSearchParams__], query = [], i, key, name, value;
@@ -185,7 +185,7 @@
      * Returns an iterator allowing to go through all keys of
      * the key/value pairs contained in this object.
      *
-     * @returns {function}
+     * @return {function}
      */
     USPProto.keys = USPProto.keys || function() {
         var items = [];
@@ -199,7 +199,7 @@
      * Returns an iterator allowing to go through all values of
      * the key/value pairs contained in this object.
      *
-     * @returns {function}
+     * @return {function}
      */
     USPProto.values = USPProto.values || function() {
         var items = [];
@@ -213,7 +213,7 @@
      * Returns an iterator allowing to go through all key/value
      * pairs contained in this object.
      *
-     * @returns {function}
+     * @return {function}
      */
     USPProto.entries = USPProto.entries || function() {
         var items = [];

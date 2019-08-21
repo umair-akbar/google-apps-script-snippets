@@ -20,7 +20,7 @@ function userActionInsertRowsBefore() {
  * Insert row before by a condition
  * @param {GoogleAppsScript.Spreadsheet.Sheet} sheet
  * @param {conditionCallback} Decides insert or skip the row
- * @returns {GoogleApps Script.Spreadsheet.Sheet}
+ * @return {GoogleApps Script.Spreadsheet.Sheet}
  */
 
 function insertRowBeforeByCondition_(sheet, condition) {
@@ -38,5 +38,5 @@ function insertRowBeforeByCondition_(sheet, condition) {
  * @param {object[]} row Row data
  * @param {number} index Index of the row
  * @param {object[][]} values Sheet values
- * @returns {boolean}
+ * @return {boolean}
  */

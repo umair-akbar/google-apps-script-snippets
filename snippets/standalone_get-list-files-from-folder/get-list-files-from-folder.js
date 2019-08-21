@@ -14,7 +14,7 @@ function userActionRun() {
 /**
  * Returns a list of files
  * @param {string} id Folder's id
- * @returns {object[][]}
+ * @return {object[][]}
  */
 function getFilesListFromFolder_(id) {
   return Drive.Files.list({ q: Utilities.formatString('"%s" in parents', id) })

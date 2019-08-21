@@ -6,7 +6,7 @@
  * @param {number} h The hue
  * @param {number} s The saturation
  * @param {number} l The lightness
- * @returns {string} The HEX representation
+ * @return {string} The HEX representation
  */
 
 var hslToHex = function(h, s, l) {

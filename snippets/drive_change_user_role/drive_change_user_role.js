@@ -19,7 +19,7 @@ function run() {
  * Downgrade you in the rights from the editor to the viewer
  * @param {string} fileId The file id
  * @param {string} email You can pass your email and downgrade youself
- * @returns {void}
+ * @return {void}
  */
 function driveChangeMeRole_(fileId, email) {
   var permissionId = Drive.Permissions.getIdForEmail(email);

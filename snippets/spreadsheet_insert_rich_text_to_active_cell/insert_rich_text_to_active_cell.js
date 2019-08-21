@@ -2,7 +2,7 @@
 
 /**
  * Inserts the rich text to the cell.
- * @returns {undefined}
+ * @return {undefined}
  */
 function insertRichTextToActiveCell() {
   var range = SpreadsheetApp.getActive().getActiveCell();
