@@ -1,6 +1,10 @@
 /* exported onOpen, 
    userActionImportFromCSV, userActionExportToCSV, 
    batchUpdateSpreadsheet_ */
+
+/**
+ *
+ */
 function onOpen() {
   SpreadsheetApp.getUi()
     .createMenu('CSV')
@@ -41,6 +45,7 @@ function userActionExportToCSV() {
  * @param {string} csvId CSV file Id
  * @param {string} spreadsheetId  Spreadsheet Id
  * @param {string} sheetId Sheet Uid
+ * @return {any}
  */
 function importFromCSV_(csvId, spreadsheetId, sheetId) {
   // Get CSV data
@@ -80,6 +85,12 @@ function importFromCSV_(csvId, spreadsheetId, sheetId) {
   return batchUpdateSpreadsheetResponse;
 }
 
+/**
+ *
+ * @param {*} csvId
+ * @param {*} spreadsheetId
+ * @param {*} sheetId
+ */
 function exportToCSV_(csvId, spreadsheetId, sheetId) {
   var url = Utilities.formatString(
     'https://docs.google.com/spreadsheets/export?id=%s&exportFormat=csv&gid=%s',

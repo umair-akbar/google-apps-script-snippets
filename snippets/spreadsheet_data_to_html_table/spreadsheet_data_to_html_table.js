@@ -18,7 +18,8 @@ function run() {
 
 /**
  * Create HTML table from a 2d Array
- * @param {object[][]} data The Spreadsheet data
+ *
+ * @param {Array.<Array.<object>>} data The Spreadsheet data
  * @return {string} HTML-string
  */
 function dataToHtmltable_(data) {

@@ -5,9 +5,16 @@
 
 /* exported userActionInsertRowsBefore */
 
+/**
+ *
+ */
 function userActionInsertRowsBefore() {
-  /** @type {conditionCallback} */
-  var cb = function(row, i, values) {
+  /**
+   * @type {conditionCallback}
+   */
+  var cb;
+
+  cb = function(row, i, values) {
     // Returns true if it's not the first row, it contains an asterks
     // and there is no an empty row before
     return values[i - 1] && /\*/.test(row[0]) && values[i - 1].join('') !== '';
@@ -19,10 +26,9 @@ function userActionInsertRowsBefore() {
 /**
  * Insert row before by a condition
  * @param {GoogleAppsScript.Spreadsheet.Sheet} sheet
- * @param {conditionCallback} Decides insert or skip the row
- * @return {GoogleApps Script.Spreadsheet.Sheet}
+ * @param {conditionCallback} condition insert or skip the row
+ * @return {GoogleAppsScript.Spreadsheet.Sheet}
  */
-
 function insertRowBeforeByCondition_(sheet, condition) {
   var dataRange = sheet.getDataRange();
   var values = dataRange.getValues();

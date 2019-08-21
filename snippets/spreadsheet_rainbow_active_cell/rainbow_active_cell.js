@@ -5,7 +5,9 @@
 
 /* exported rainbowActiveCell */
 /* global hslToHex */
-
+/**
+ *
+ */
 function rainbowActiveCell() {
   var cell = SpreadsheetApp.getActiveRange();
   var text = cell.getValue().toString();

@@ -21,6 +21,9 @@ function insertRichTextToActiveCell() {
   range.setRichTextValue(value);
 }
 
+/**
+ *
+ */
 function insertRichTextToActiveCellByCondition() {
   var range = SpreadsheetApp.getActive().getActiveCell();
   range.clearFormat();
