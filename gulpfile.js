@@ -57,9 +57,12 @@ gulp.task('clasp', function(cb) {
 
 gulp.task('develop', gulp.series('br', 'clasp'));
 
-gulp.task('watch', function() {
-  gulp.watch(
-    ['./{snippets,extra,shims,drafts}/**/*.{js,gs,json,html}'],
-    gulp.series('br', 'clasp')
-  );
-});
+gulp.task(
+  'watch',
+  gulp.series('br', 'clasp', function watch() {
+    gulp.watch(
+      ['./{snippets,extra,shims,drafts}/**/*.{js,gs,json,html}'],
+      gulp.series('br', 'clasp')
+    );
+  })
+);
