@@ -26,6 +26,7 @@
     "@types/google-apps-script": "0.0.54",
     "babel-plugin-transform-es5-property-mutators": "^6.24.1",
     "del": "^5.0.0",
+    "docsify-cli": "^4.3.0",
     "eslint": "^6.1.0",
     "eslint-config-google": "^0.13.0",
     "eslint-config-prettier": "^6.0.0",
