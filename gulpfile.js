@@ -35,6 +35,9 @@ gulp.task('br', function(done) {
       claspConfig =
         './settings/container-bound-form-script-example/.clasp.json';
       break;
+    case 'container-bound-doc':
+      claspConfig = './settings/container-bound-doc-script-example/.clasp.json';
+      break;
     default:
       throw new Error('USER CONFIG ERROR: type requeried');
   }
