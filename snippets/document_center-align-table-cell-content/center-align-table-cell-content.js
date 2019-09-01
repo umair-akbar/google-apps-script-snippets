@@ -49,10 +49,10 @@ function setСenterAlignmentForAllTables2_(doc) {
     DocumentApp.HorizontalAlignment.CENTER;
   style[DocumentApp.Attribute.VERTICAL_ALIGNMENT] =
     DocumentApp.VerticalAlignment.CENTER;
-  var text = doc.getBody();
-  for (var i = 0; i < text.getNumChildren(); i++) {
-    if (text.getChild(i).getType() == 'TABLE') {
-      var table = text.getChild(i).asTable();
+  var body = doc.getBody();
+  for (var i = 0; i < body.getNumChildren(); i++) {
+    if (body.getChild(i).getType() == 'TABLE') {
+      var table = body.getChild(i).asTable();
       var rows = table.getNumRows();
       var cols = table
         .getChild(0)
@@ -60,7 +60,7 @@ function setСenterAlignmentForAllTables2_(doc) {
         .getNumChildren();
       for (var j = 0; j < rows; j++) {
         for (var k = 0; k < cols; k++) {
-          text
+          body
             .getChild(i)
             .asTable()
             .getCell(j, k)
