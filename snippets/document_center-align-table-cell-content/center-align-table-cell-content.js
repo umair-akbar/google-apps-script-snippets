@@ -8,7 +8,7 @@
  */
 function run() {
   var doc = DocumentApp.getActiveDocument();
-  setСenterAlignmentForAllTables_(doc);
+  setСenterAlignmentForAllTables2_(doc);
 }
 
 /**
@@ -37,4 +37,36 @@ function setСenterAlignmentForAllTables_(doc) {
       indexRow++;
     }
   });
+}
+
+/**
+ *
+ * @param {GoogleAppsScript.Document.Document} doc
+ */
+function setСenterAlignmentForAllTables2_(doc) {
+  var style = {};
+  style[DocumentApp.Attribute.HORIZONTAL_ALIGNMENT] =
+    DocumentApp.HorizontalAlignment.CENTER;
+  style[DocumentApp.Attribute.VERTICAL_ALIGNMENT] =
+    DocumentApp.VerticalAlignment.CENTER;
+  var text = doc.getBody();
+  for (var i = 0; i < text.getNumChildren(); i++) {
+    if (text.getChild(i).getType() == 'TABLE') {
+      var table = text.getChild(i).asTable();
+      var rows = table.getNumRows();
+      var cols = table
+        .getChild(0)
+        .asTableRow()
+        .getNumChildren();
+      for (var j = 0; j < rows; j++) {
+        for (var k = 0; k < cols; k++) {
+          text
+            .getChild(i)
+            .asTable()
+            .getCell(j, k)
+            .setAttributes(style);
+        }
+      }
+    }
+  }
 }
