@@ -1,7 +1,11 @@
-/* exported run */
+/**
+ * @file A snippet for deleting rows from a Google Sheet by condition.
+ * Examples of the snippet {@link https://webapps.stackexchange.com/a/133308/}
+ */
 
 /**
- * Runs the example
+ * Runs the snippet.
+ * Removes rows by condition 'B:B=10'.
  * @ignore
  */
 function run() {
@@ -12,7 +16,8 @@ function run() {
 }
 
 /**
- * Delete with archive
+ * Runs the snippet.
+ * Removes rows by condition 'B:B=10'. Appends deleted rows to the 'Archive' sheet.
  */
 function run2() {
   var sheet = SpreadsheetApp.getActiveSheet();
