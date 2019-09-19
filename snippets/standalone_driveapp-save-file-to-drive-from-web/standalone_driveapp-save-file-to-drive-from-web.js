@@ -12,7 +12,6 @@ function run() {
 
 /**
  *
- *
  * @param {string} url The file source url
  * @return {GoogleAppsScript.Drive.File}
  */
