@@ -35,6 +35,9 @@ gulp.task('br', function(done) {
       claspConfig =
         './settings/container-bound-form-script-example/.clasp.json';
       break;
+    case 'container-bound-doc':
+      claspConfig = './settings/container-bound-doc-script-example/.clasp.json';
+      break;
     default:
       throw new Error('USER CONFIG ERROR: type requeried');
   }
@@ -57,12 +60,47 @@ gulp.task('clasp', function(cb) {
 
 gulp.task('develop', gulp.series('br', 'clasp'));
 
+gulp.task('copy-sheet', function() {
+  console.log(arg);
+  if (arg.name)
+    return gulp
+      .src('./templates/spreadsheet/**/*.*', {
+        base: './templates/spreadsheet'
+      })
+      .pipe(gulp.dest(`./snippets/spreadsheet_${arg.name}`));
+});
+
 gulp.task(
   'watch',
   gulp.series('br', 'clasp', function watch() {
     gulp.watch(
-      ['./{snippets,extra,shims,drafts}/**/*.{js,gs,json,html}'],
+      ['./{snippets,extra,shims,drafts,.preliminary}/**/*.{js,gs,json,html}'],
       gulp.series('br', 'clasp')
     );
   })
 );
+
+// fetch command line arguments
+const arg = (argList => {
+  const arg = {};
+  let a;
+  let opt;
+  let thisOpt;
+  let curOpt;
+  for (a = 0; a < argList.length; a++) {
+    thisOpt = argList[a].trim();
+    opt = thisOpt.replace(/^-+/, '');
+
+    if (opt === thisOpt) {
+      // argument value
+      if (curOpt) arg[curOpt] = opt;
+      curOpt = null;
+    } else {
+      // argument name
+      curOpt = opt;
+      arg[curOpt] = true;
+    }
+  }
+
+  return arg;
+})(process.argv);
