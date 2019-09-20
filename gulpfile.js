@@ -74,7 +74,7 @@ gulp.task(
   'watch',
   gulp.series('br', 'clasp', function watch() {
     gulp.watch(
-      ['./{snippets,extra,shims,drafts}/**/*.{js,gs,json,html}'],
+      ['./{snippets,extra,shims,drafts,.preliminary}/**/*.{js,gs,json,html}'],
       gulp.series('br', 'clasp')
     );
   })
@@ -89,7 +89,7 @@ const arg = (argList => {
   let curOpt;
   for (a = 0; a < argList.length; a++) {
     thisOpt = argList[a].trim();
-    opt = thisOpt.replace(/^\-+/, '');
+    opt = thisOpt.replace(/^-+/, '');
 
     if (opt === thisOpt) {
       // argument value
