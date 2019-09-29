@@ -49,7 +49,11 @@
           'https://ssl.gstatic.com/images/branding/product/2x/apps_script_48dp.png',
         loadSidebar: true,
         loadNavbar: false,
-        basePath: '/google-apps-script-snippets/',
+        basePath: (function(self) {
+          return /(localhost|127.0.0.1)/.test(self.location.hostname)
+            ? '/'
+            : '/google-apps-script-snippets/';
+        })(this),
         relativePath: true,
         plugins: [
           // DocsifyCodefund.create(''),
