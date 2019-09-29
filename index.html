@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" href="docs/img/favicon.ico">
+    <link rel="icon" href="docs/img/favicon.ico" />
     <title>Google Apps Script Snippets</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="description" content="Google Apps Script Snippets" />
@@ -40,7 +40,7 @@
         alias: {
           '/_sidebar.md': '/docs/_sidebar.md',
           '/.*/_navbar.md': '/_navbar.md',
-          '/(.*)/snippets/_sidebar.md': '/docs/$1/_sidebar.md', // the sidebar for external links 
+          '/(.*)/snippets/_sidebar.md': '/docs/$1/_sidebar.md', // the sidebar for external links
           '/docs/(.*?)/(.*?)/snippet/(.*?)/': '/snippets/$3/readme.$1.md' // external links direct to snippets
         },
         name: 'Apps Script Snippets',
@@ -52,7 +52,7 @@
         basePath: '/',
         relativePath: true,
         plugins: [
-        DocsifyCodefund.create('fae1f9a4-870c-4c25-b8e0-c80464f7a95c'),
+          // DocsifyCodefund.create(''),
           function(hook, vm) {
             hook.beforeEach(function(html) {
               var path = vm.route.file
@@ -95,7 +95,11 @@
         ]
       };
     </script>
-    <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
+    <script
+      src="//unpkg.com/docsify/lib/docsify.min.js"
+      data-ga="UA-105689976-2"
+    ></script>
     <script src="//unpkg.com/docsify/lib/plugins/emoji.min.js"></script>
+    <script src="//unpkg.com/docsify/lib/plugins/ga.min.js"></script>
   </body>
 </html>
