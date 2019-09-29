@@ -2,26 +2,100 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>google-apps-script-snippets - Google Apps Script Snippets</title>
+    <link rel="icon" href="docs/img/favicon.ico">
+    <title>Google Apps Script Snippets</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="description" content="Google Apps Script Snippets" />
     <meta
       name="viewport"
       content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
     />
-    <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css" />
+    <link
+      rel="stylesheet"
+      href="//unpkg.com/docsify/lib/themes/vue.css"
+      title="vue"
+    />
+    <link
+      rel="stylesheet"
+      href="//unpkg.com/docsify/lib/themes/dark.css"
+      title="dark"
+      disabled
+    />
+    <link
+      rel="stylesheet"
+      href="//unpkg.com/docsify/lib/themes/buble.css"
+      title="buble"
+      disabled
+    />
   </head>
+  <style>
+    nav.app-nav li ul {
+      min-width: 100px;
+    }
+  </style>
   <body>
     <div id="app"></div>
     <script>
       window.$docsify = {
+        alias: {
+          '/_sidebar.md': '/docs/_sidebar.md',
+          '/.*/_navbar.md': '/_navbar.md',
+          '/(.*)/snippets/_sidebar.md': '/docs/$1/_sidebar.md', // the sidebar for external links 
+          '/docs/(.*?)/(.*?)/snippet/(.*?)/': '/snippets/$3/readme.$1.md' // external links direct to snippets
+        },
         name: 'Apps Script Snippets',
         repo: 'oshliaer/google-apps-script-snippets',
+        logo:
+          'https://ssl.gstatic.com/images/branding/product/2x/apps_script_48dp.png',
         loadSidebar: true,
         loadNavbar: false,
-        basePath: '/'
+        basePath: '/',
+        relativePath: true,
+        plugins: [
+        DocsifyCodefund.create('fae1f9a4-870c-4c25-b8e0-c80464f7a95c'),
+          function(hook, vm) {
+            hook.beforeEach(function(html) {
+              var path = vm.route.file
+                .split('/')
+                .reverse()
+                .slice(1)
+                .reverse()
+                .join('/');
+              html = html.replace(
+                /<!--.*?Open the snippet anchor:(.*?)\s*?-->/g,
+                `<a href="https://github.com/${window.$docsify.repo}/tree/master/${path}" target="_blank">$1</a>`
+              );
+              return html;
+            });
+          },
+          function(hook, vm) {
+            hook.beforeEach(function(html) {
+              if (/githubusercontent\.com/.test(vm.route.file)) {
+                url = vm.route.file
+                  .replace('raw.githubusercontent.com', 'github.com')
+                  .replace(/\/master/, '/blob/master');
+              } else {
+                url = `https://github.com/${window.$docsify.repo}/blob/master${window.$docsify.basePath}${vm.route.file}`;
+              }
+              var editHtml = '[:memo: Edit Document](' + url + ')\n';
+              var docsify_link =
+                '<a href="https://docsify.js.org" target="_blank" style="color: inherit; font-weight: normal; text-decoration: none;">Powered by docsify</a>';
+              var contributor_pw_link =
+                '<a href="https://contributor.pw" target="_blank" style="color: inherit; font-weight: normal; text-decoration: none;">Supported by contributor.pw</a>';
+              return (
+                editHtml +
+                html +
+                '\n\n----\n\n' +
+                docsify_link +
+                ' | ' +
+                contributor_pw_link
+              );
+            });
+          }
+        ]
       };
     </script>
     <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
+    <script src="//unpkg.com/docsify/lib/plugins/emoji.min.js"></script>
   </body>
 </html>

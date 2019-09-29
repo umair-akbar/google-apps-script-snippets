@@ -1,16 +1,19 @@
 <!-- docs/ru/_sidebar.md -->
 
-* Идея
-  * Быстрый старт
-  * Как найти нужный пример
-  * 
+- Начало
 
-* Инструментарий
-  * Сниппеты
-  * Настройки
-  * Приспособления
-  * Шимы и полифилы
+  - [Быстрый старт](/docs/ru/quickstart)
+  - [Как найти нужный пример](/docs/ru/howtofind)
 
-# Snippets
+- Инструментарий
 
-- [spreadsheet_update-colored-notes](/ru/snippets/spreadsheet_update-colored-notes)
+  - [Настройки](/docs/ru/settings)
+  - _Приспособления_ :soon:
+  - _Шимы и полифилы_ :soon:
+
+- Сниппеты
+
+  - [Пользовательские функции](/docs/ru/customfunctions)
+  - [Работа с Таблицами](/docs/ru/sheets)
+  - [Работа с Документами](/docs/ru/docs)
+  - [Работа с Диском](/docs/ru/drive)

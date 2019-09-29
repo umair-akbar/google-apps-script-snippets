@@ -2,5 +2,4 @@
 
 This is a diverse collection of code snippets that I have ever seen and made.
 
-- Docs (English translation required)
-- [Документация](docs/ru/)
+:warning: English translation required.
