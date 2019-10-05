@@ -45,8 +45,8 @@ function runSheet() {
  * @returns {GoogleAppsScript.Drive.File}
  */
 function exportSpreadsheetToFile_(spreadsheetId, type) {
-  /* globals __SNIPPETS__TYPES__ */
-  var type_ = __SNIPPETS__TYPES__[type];
+  /* globals __SNIPPETS__TYPES__EXPORT__SHEET__ */
+  var type_ = __SNIPPETS__TYPES__EXPORT__SHEET__[type];
   var url = Drive.Files.get(spreadsheetId).exportLinks[type_];
   var blob = UrlFetchApp.fetch(url, {
     headers: {
@@ -76,5 +76,5 @@ function exportSpreadsheetToFile_(spreadsheetId, type) {
     'application/zip': 'application/zip',
     zip: 'application/zip'
   };
-  scope.__SNIPPETS__TYPES__ = TYPES;
+  scope.__SNIPPETS__TYPES__EXPORT__SHEET__ = TYPES;
 })(this);
