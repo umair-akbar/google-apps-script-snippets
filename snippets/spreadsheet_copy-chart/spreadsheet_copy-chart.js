@@ -8,7 +8,7 @@ function myFunction() {
   var spreadsheet = SpreadsheetApp.openById(
     '16WXWHS5OHtBERqhGhWyHvY1uyFA5Zc3SUm5B87DUSpo'
   );
-
+//asdfa sdf sdf 
   builder.clearRanges();
   ranges.forEach(function(range) {
     var sheetName = range.getSheet().getName();

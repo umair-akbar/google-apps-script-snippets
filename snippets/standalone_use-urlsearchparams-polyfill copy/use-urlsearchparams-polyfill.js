@@ -7,6 +7,14 @@
 /* exported userActionRun */
 
 /**
+ *
+ * @param {*} e
+ */
+function doGet() {
+  return HtmlService.createHtmlOutputFromFile('app');
+}
+
+/**
  * User action. Runs the snippet
  */
 function userActionRun() {
