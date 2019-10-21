@@ -4,12 +4,12 @@
  * http://creativecommons.org/publicdomain/zero/1.0/ */
 
 /** @type {boolean|undefined} */
-// -- https://github.com/oshliaer/google-apps-script-snippets --
+// -- https://github.com/contributorpw/google-apps-script-snippets --
 // Window.prototype.forceJURL = false;
 
 (function (scope) {
   'use strict'; 
-// -- https://github.com/oshliaer/google-apps-script-snippets --
+// -- https://github.com/contributorpw/google-apps-script-snippets --
 /* // feature detect for URL constructor
 
   var hasWorkingUrl = false;
@@ -699,6 +699,6 @@
 
   scope.URL = jURL;
 
-// -- https://github.com/oshliaer/google-apps-script-snippets --
+// -- https://github.com/contributorpw/google-apps-script-snippets --
 // })(window)
 })(typeof global !== 'undefined' ? global : (typeof window !== 'undefined' ? window : this));

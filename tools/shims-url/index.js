@@ -20,7 +20,7 @@ const babelit = async code => {
 const transform = code => {
   // return code;
   const clap =
-    '// -- https://github.com/oshliaer/google-apps-script-snippets --';
+    '// -- https://github.com/contributorpw/google-apps-script-snippets --';
   return code
     .replace(/(Window.prototype.forceJURL = false;)/, `${clap}\n// $&`)
     .replace(

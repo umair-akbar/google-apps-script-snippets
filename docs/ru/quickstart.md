@@ -5,7 +5,7 @@
 В идеальном случае вы должны колонировать этот репозиторий
 
 ```sh
-$> git clone https://github.com/oshliaer/google-apps-script-snippets.git ./
+$> git clone https://github.com/contributorpw/google-apps-script-snippets.git ./
 ```
 
 Установить зависимости

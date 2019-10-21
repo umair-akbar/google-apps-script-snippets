@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/oshliaer/google-apps-script-snippets.git"
+    "url": "git+https://github.com/contributorpw/google-apps-script-snippets.git"
   },
   "author": "Alexander Ivanov (@oshliaer)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/oshliaer/google-apps-script-snippets/issues"
+    "url": "https://github.com/contributorpw/google-apps-script-snippets/issues"
   },
-  "homepage": "https://github.com/oshliaer/google-apps-script-snippets#readme",
+  "homepage": "https://github.com/contributorpw/google-apps-script-snippets#readme",
   "devDependencies": {
     "@babel/core": "^7.6.2",
     "@babel/preset-env": "^7.6.2",

@@ -37,7 +37,7 @@ params:
 
   # Set source repository location.
   # Used for 'Last Modified' and 'Edit this page' links.
-  BookRepo: https://github.com/oshliaer/google-apps-script-snippets
+  BookRepo: https://github.com/contributorpw/google-apps-script-snippets
 
   # Enable "Edit this page" links for 'doc' page type.
   # Disabled by default. Uncomment to enable. Requires 'BookRepo' param.

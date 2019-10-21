@@ -6,7 +6,7 @@
  */
 function run() {
   var url =
-    'https://raw.githubusercontent.com/oshliaer/google-apps-script-snippets/master/snippets/standalone_driveapp-save-file-to-drive-from-web/standalone_driveapp-save-file-to-drive-from-web.js';
+    'https://raw.githubusercontent.com/contributorpw/google-apps-script-snippets/master/snippets/standalone_driveapp-save-file-to-drive-from-web/standalone_driveapp-save-file-to-drive-from-web.js';
   Logger.log(saveFileToDriveByUrl_(url).getId());
 }
 
