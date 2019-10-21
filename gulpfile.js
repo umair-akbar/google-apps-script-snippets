@@ -24,6 +24,9 @@ gulp.task('br', function(done) {
   ];
   let claspConfig = '';
   switch (config.type) {
+    case 'single':
+      claspConfig = `${snippet}.clasp.json`;
+      break;
     case 'standalone':
       claspConfig = './settings/standalone-script-example/.clasp.json';
       break;
