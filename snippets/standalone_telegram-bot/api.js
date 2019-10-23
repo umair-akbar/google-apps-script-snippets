@@ -1,15 +1,19 @@
-function getScriptURL(){
+function getScriptURL() {
   return ScriptApp.getService().getUrl();
 }
 
-function setWebhook(){  
-  var uf = UrlFetchApp.fetch(api('setWebhook') + '?url=' + getScriptURL());
+function setWebhook() {
+  var uf = UrlFetchApp.fetch(
+    api('setWebhook') + '?url=' + getScriptURL()
+  );
 }
 
-function disableWebhook(){  
+function disableWebhook() {
   var uf = UrlFetchApp.fetch(api('setWebhook') + '?url=');
 }
 
-function getApiKey(){
-  return PropertiesService.getScriptProperties().getProperty('apikey');
+function getApiKey() {
+  return PropertiesService.getScriptProperties().getProperty(
+    'apikey'
+  );
 }

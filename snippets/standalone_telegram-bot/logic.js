@@ -1,7 +1,10 @@
 var SPRID = '128F4LovqmOV1E2LqXRBXj3HuDl4SCDpwUhJgj8Yzd1E';
 
 function appendRow(data) {
-  SpreadsheetApp.openById(SPRID).appendRow([new Date(), data]);
+  SpreadsheetApp.openById(SPRID).appendRow([
+    new Date(),
+    data
+  ]);
 }
 
 function readLastRow() {

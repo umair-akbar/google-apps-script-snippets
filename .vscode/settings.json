@@ -1,3 +1,4 @@
 {
-  "javascript.suggestionActions.enabled": false
+  "javascript.suggestionActions.enabled": false,
+  "editor.rulers": [80]
 }

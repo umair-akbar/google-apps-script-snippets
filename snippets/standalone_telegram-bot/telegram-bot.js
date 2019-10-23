@@ -42,22 +42,37 @@ function actions(contents) {
 
 function api(METHOD_NAME) {
   console.log([
-    'https://api.telegram.org/bot' + getApiKey() + '/' + METHOD_NAME
+    'https://api.telegram.org/bot' +
+      getApiKey() +
+      '/' +
+      METHOD_NAME
   ]);
-  return 'https://api.telegram.org/bot' + getApiKey() + '/' + METHOD_NAME;
+  return (
+    'https://api.telegram.org/bot' +
+    getApiKey() +
+    '/' +
+    METHOD_NAME
+  );
 }
 
 function sendMessage(params) {
-  var uf = UrlFetchApp.fetch(api('sendMessage') + '?' + params.serialize(), {
-    muteHttpExceptions: true
-  });
+  var uf = UrlFetchApp.fetch(
+    api('sendMessage') + '?' + params.serialize(),
+    {
+      muteHttpExceptions: true
+    }
+  );
 }
 
 Object.prototype.serialize = function() {
   var str = [];
   for (var p in this)
     if (this.hasOwnProperty(p)) {
-      str.push(encodeURIComponent(p) + '=' + encodeURIComponent(this[p]));
+      str.push(
+        encodeURIComponent(p) +
+          '=' +
+          encodeURIComponent(this[p])
+      );
     }
   return str.join('&');
 };
