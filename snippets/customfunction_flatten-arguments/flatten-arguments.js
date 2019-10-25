@@ -1,3 +1,4 @@
+// https://stackoverflow.com/questions/58448333/custom-function-udf-how-to-input-values-as-a-range/58542178#58542178
 /**
  *
  * @param {*} date
