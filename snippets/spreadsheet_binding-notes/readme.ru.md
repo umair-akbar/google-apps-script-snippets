@@ -4,4 +4,4 @@ title: Обновляет заметки в зависимости от знач
 
 ## Screenmovie
 
-![Update colored notes](./screenrecord.gif)
+![Update colored notes](https://raw.githubusercontent.com/contributorpw/google-apps-script-snippets/master/snippets/spreadsheet_binding-notes/screenrecord.gif)
