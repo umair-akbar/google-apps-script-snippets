@@ -2,5 +2,5 @@
 
 This is a diverse collection of code snippets that I have ever seen and made.
 
-- Docs (English translation required)
-- [Документация](docs/ru/)
+- [Docs](https://google-apps-script-snippets.contributor.pw) **English translation required**
+- [Документация](https://google-apps-script-snippets.contributor.pw/ru)
