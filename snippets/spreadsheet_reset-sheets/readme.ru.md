@@ -1,6 +1,7 @@
 ---
 title: Сброс листа
 status: init
+url: snippets/spreadsheet_reset-sheets
 ---
 
 ## Reset sheets

@@ -1,6 +1,7 @@
 ---
 title: Reset sheets
 status: init
+url: snippets/spreadsheet_reset-sheets
 ---
 
 ## Reset sheets

@@ -60,12 +60,42 @@ function userActionResetRangesByRangesAddresses() {
 function userActionResetMultipleSheetsByRangesAddresses() {
   var sheetNames = [
     { name: 'Sheet1', rangesAddressesList: ['B5:B15', 'B19'] },
-    { name: 'Sheet2', rangesAddressesList: ['A1:Z20'] }
+    { name: 'Sheet2', rangesAddressesList: ['A1:Z20'] },
   ];
   sheetNames.forEach(function(sn) {
     var sheet = SpreadsheetApp.getActive().getSheetByName(sn.name);
     if (sheet) {
       resetByRangesList_(sheet, sn.rangesAddressesList);
+    }
+  });
+}
+
+/**
+ * Clear specifing sheets by color
+ */
+function userActionResetMultipleSheetsByColor() {
+  var fColor = '#fa7d00';
+  var sheetNames = [
+    // { name: 'Sheet1' },
+    { name: 'Reset by color (click the image)' },
+  ];
+  sheetNames.forEach(function(sn) {
+    var sheet = SpreadsheetApp.getActive().getSheetByName(sn.name);
+    if (sheet) {
+      var rangesAddressesList = sheet
+        .getDataRange()
+        .getFontColors()
+        .reduce(function(p, row, i) {
+          var colors = row.reduce(function(p2, color, j) {
+            if (color === fColor)
+              p2.push(Utilities.formatString('R%sC%s', i + 1, j + 1));
+            return p2;
+          }, []);
+          if (colors.length) p = p.concat(colors);
+          return p;
+        }, []);
+      if (rangesAddressesList.length)
+        resetByRangesList_(sheet, rangesAddressesList);
     }
   });
 }
