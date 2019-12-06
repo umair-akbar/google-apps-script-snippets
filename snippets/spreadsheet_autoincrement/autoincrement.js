@@ -18,11 +18,11 @@ function autoincrement_(sheet) {
   var lastIncrement = Math.max.apply(
     null,
     increment.filter(function(e) {
-      return isNumeric(e);
+      return isNumeric_(e);
     })
   );
 
-  lastIncrement = isNumeric(lastIncrement) ? lastIncrement : 0;
+  lastIncrement = isNumeric_(lastIncrement) ? lastIncrement : 0;
   var newIncrement = data
     .map(function(row) {
       if (row[indexCol] !== '') return [row[indexCol]];
@@ -34,10 +34,25 @@ function autoincrement_(sheet) {
 }
 
 /**
- *
+ * If you need track EDIT event
  * @param {GoogleAppsScript.Events.SheetsOnEdit} e
  */
 function onEdit(e) {
+  afterEvent_(e);
+}
+
+/**
+ * If you need track FORM_SUBMIT event
+ * @param {GoogleAppsScript.Events.FormsOnSubmit} e
+ */
+function onformsubmit(e) {
+  afterEvent_(e);
+}
+/**
+ *
+ * @param {*} e
+ */
+function afterEvent_(e) {
   try {
     var lock = LockService.getScriptLock();
     if (lock.tryLock(0)) {
@@ -53,9 +68,9 @@ function onEdit(e) {
  *
  */
 function userActionUpdateIncrement() {
-  onEdit({
+  afterEvent_({
     range: SpreadsheetApp.getActiveRange(),
-    source: SpreadsheetApp.getActive()
+    source: SpreadsheetApp.getActive(),
   });
 }
 
@@ -74,6 +89,6 @@ function onOpen() {
  * @param {any} n
  * @return {boolean}
  */
-function isNumeric(n) {
+function isNumeric_(n) {
   return !isNaN(parseFloat(n)) && isFinite(n);
 }
