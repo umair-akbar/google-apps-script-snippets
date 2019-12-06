@@ -25,7 +25,7 @@ function onedit(e) {
     var destinationSheet = currentSheet.getParent().getSheetByName('Sheet 2');
     var destinationRow = destinationSheet.getLastRow() + 1;
     dataRange.copyTo(destinationSheet.getRange(destinationRow, 1), {
-      contentsOnly: true
+      contentsOnly: true,
     });
   }
 }

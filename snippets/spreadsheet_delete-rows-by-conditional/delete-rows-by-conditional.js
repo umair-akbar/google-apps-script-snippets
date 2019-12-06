@@ -4,34 +4,48 @@
  */
 
 /**
+ * If you wish implement this for EDIT
+ */
+// function onEdit() {
+//   run2();
+// }
+
+/**
  * Runs the snippet.
  * Removes rows by condition 'B:B=10'.
  * @ignore
  */
-function run() {
+function run1() {
   var sheet = SpreadsheetApp.getActiveSheet();
-  deleteRowsByConditional_(sheet, function(row) {
-    return row[1] === 10;
+  deleteRowsByConditional_(sheet, function(values, i) {
+    return values[i][1] === 10;
   });
 }
 
 /**
+ * https://toster.ru/q/690651
  * Runs the snippet.
- * Removes rows by condition 'B:B=10'. Appends deleted rows to the 'Archive' sheet.
+ * Removes rows by condition '(A:A<>"")*(B:B<>"")*(D:D<>"")*(F:F<>"")'. Appends deleted rows to the 'Archive' sheet.
+ *
  */
 function run2() {
+  /* Remove dash */
   var sheet = SpreadsheetApp.getActiveSheet();
+  if (sheet.getName() === 'Archive') return;
   var archive = SpreadsheetApp.getActive().getSheetByName('Archive');
 
   var action = function(values, i, i2) {
-    var data = values.slice(values.length - i - i2, values.length - i); // It's reversed
+    var data = values.slice(i, i + i2);
     archive
       .getRange(archive.getLastRow() + 1, 1, data.length, data[0].length)
       .setValues(data);
   };
 
-  var condition = function(row) {
-    return row[1] === 'asdf';
+  var condition = function(values, i) {
+    var row = values[i];
+    return (
+      i > 0 && row[0] !== '' && row[1] !== '' && row[3] !== '' && row[5] !== ''
+    );
   };
 
   deleteRowsByConditional_(sheet, condition, action);
@@ -55,37 +69,42 @@ function run2() {
  * @param {dataCallback} action - The callback that exec with current removed rows.
  **/
 function deleteRowsByConditional_(sheet, condition, action) {
-  var values = sheet.getDataRange().getValues();
-  values.unshift([]);
-  values.reverse().forEach(
-    function() {
-      var i = this.l - arguments[1];
-      if (this.condition.apply(null, [arguments[0], i, arguments[2]])) {
-        this.isContinue++;
-      } else if (this.isContinue) {
-        if (action) action(arguments[2], i, this.isContinue);
-        this.sheet.deleteRows(i, this.isContinue);
-        this.isContinue = 0;
-      }
-    },
-    { sheet: sheet, condition: condition, isContinue: 0, l: values.length }
-  );
+  sheet
+    .getDataRange()
+    .getValues()
+    .forEach(
+      function(_, i, arr) {
+        var j = arr.length - i - 1;
+        if (this.condition.apply(null, [arr, j])) {
+          this.isContinue++;
+          if (j > 0) return;
+        }
+        if (this.isContinue > 0) {
+          var prevPos = j + 1; // It's reversed
+          if (action) action(arr, prevPos, this.isContinue);
+          this.sheet.deleteRows(prevPos + 1, this.isContinue);
+          this.isContinue = 0;
+          return;
+        }
+        return;
+      },
+      { sheet: sheet, condition: condition, isContinue: 0 }
+    );
 }
 
 /**
  * Returns true/false state for each row.
  *
  * @callback conditionCallback
- * @param {Array} currentValue - The current row of the DataRange
- * @param {Number} index - The index of the current row. The DataRange is reversed!
- * @param {Array} array - The DataRange. The DataRange is reversed!
+ * @param {Array} array - The DataRange.
+ * @param {Number} index - The index of the current row.
  **/
 
 /**
  * Exec with current removed rows.
  *
  * @callback dataCallback
- * @param {Array} array - The DataRange. The DataRange is reversed!
- * @param {Number} index - The index of the current row. The DataRange is reversed!
- * @param {Number} index2 - The index2 of the current row. The DataRange is reversed!
+ * @param {Array} array - The DataRange.
+ * @param {Number} index - The index of the current row.
+ * @param {Number} index2 - The index2 of the current row.
  **/
