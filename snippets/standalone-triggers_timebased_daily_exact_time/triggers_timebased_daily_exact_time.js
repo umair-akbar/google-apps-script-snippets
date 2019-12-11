@@ -1,6 +1,6 @@
 /**
- * @file The URLSearchParams constructor
- * @url https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams
+ * @file Timebased trigger daily exact
+ * @url https://www.facebook.com/groups/googleappsscript/permalink/548100505739510/
  */
 
 /**
