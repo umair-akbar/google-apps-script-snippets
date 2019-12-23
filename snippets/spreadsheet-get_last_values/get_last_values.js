@@ -13,3 +13,13 @@ function getLastValueByFullColumnAddres() {
   });
   Logger.log(lValue);
 }
+
+/**
+ *
+ */
+function getLastRowValuesOfSheet() {
+  var sheet = SpreadsheetApp.getActiveSheet();
+  var dataValues = sheet.getDataRange().getValues();
+  var lastValues = dataValues[dataValues.length - 1].slice();
+  Logger.log(lastValues);
+}
