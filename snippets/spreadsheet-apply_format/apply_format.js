@@ -20,7 +20,7 @@ function runFormatActiveSheet() {
 }
 
 /**
- * Format active range
+ * Format active book
  */
 function runFormatActiveSpreadsheet() {
   SpreadsheetApp.getActive()
