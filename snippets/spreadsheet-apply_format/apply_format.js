@@ -1,4 +1,9 @@
 /**
+ * @file Apply format for Range, Sheet, Spreadsheet
+ * @see {@link https://www.facebook.com/groups/spreadsheets/permalink/608833573197952/}
+ */
+
+/**
  * Format active range
  */
 function runFormatActiveRange() {
