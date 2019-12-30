@@ -1,8 +1,13 @@
 /**
- * @file
- * @url
+ * @file Sample of customformula
+ * @url https://support.google.com/docs/thread/23258741?hl=en
  */
-function FF(a1Nota) {
+
+/**
+ * Returns error messages of a1nota cells
+ * @param {string} a1Nota
+ */
+function GETERRORMESSAGES(a1Nota) {
   try {
     var url = Utilities.formatString(
       'https://sheets.googleapis.com/v4/spreadsheets/%s?ranges=%s&fields=sheets(data(rowData(values(userEnteredValue%2CeffectiveValue%2CformattedValue))))',
@@ -26,11 +31,14 @@ function FF(a1Nota) {
       }
     );
   } catch (error) {
-    return error;
+    return error.message;
   }
 }
 
-function f2() {
+/**
+ * Run once
+ */
+function saveMyOAuthToken() {
   PropertiesService.getScriptProperties().setProperty(
     'CODE',
     ScriptApp.getOAuthToken()
