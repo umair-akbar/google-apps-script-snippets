@@ -1,6 +1,9 @@
 /**
  * @file A snippet for deleting rows from a Google Sheet by condition.
- * Examples of the snippet {@link https://webapps.stackexchange.com/a/133308/}
+ * Examples of the snippet
+ * {@link https://webapps.stackexchange.com/a/133308/}
+ * {@link https://groups.google.com/forum/#!topic/google-apps-script-community/-ITmOCfJmFw}
+ * {@link https://toster.ru/q/690651}
  */
 
 /**
@@ -80,7 +83,7 @@ function deleteRowsByConditional_(sheet, condition, action) {
           if (j > 0) return;
         }
         if (this.isContinue > 0) {
-          var prevPos = j + 1; // It's reversed
+          var prevPos = j + 1;
           if (action) action(arr, prevPos, this.isContinue);
           this.sheet.deleteRows(prevPos + 1, this.isContinue);
           this.isContinue = 0;
