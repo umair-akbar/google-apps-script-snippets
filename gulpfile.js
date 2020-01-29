@@ -3,7 +3,6 @@ const fs = require('fs');
 const path = require('path');
 const gulp = require('gulp');
 const del = require('del');
-const rename = require('gulp-rename');
 
 // https://stackoverflow.com/questions/29511491,
 // https://gist.github.com/rmckeel/b4e60922f5098ced9c50bdd96731b34a
@@ -27,30 +26,6 @@ gulp.task('br', function(done) {
   if (!config.type) throw new Error('USER CONFIG ERROR: type requeried');
   if (config.type === 'single') claspConfig = `${snippet}.clasp.json`;
   else claspConfig = `settings/${config.type}/.clasp.json`;
-  // switch (config.type) {
-  //   case 'single':
-  //     claspConfig = `${snippet}.clasp.json`;
-  //     break;
-  //   case 'standalone':
-  //     claspConfig = './settings/standalone-script-example/.clasp.json';
-  //     break;
-  //   case 'container-bound-sheet':
-  //     claspConfig =
-  //       './settings/container-bound-sheet-script-example/.clasp.json';
-  //     break;
-  //   case 'container-bound-form':
-  //     claspConfig =
-  //       './settings/container-bound-form-script-example/.clasp.json';
-  //     break;
-  //   case 'container-bound-doc':
-  //     claspConfig = './settings/container-bound-doc-script-example/.clasp.json';
-  //     break;
-  //   case 'custom':
-  //     claspConfig = './settings/custom/.clasp.json';
-  //     break;
-  //   default:
-  //
-  // }
   if (config.src) src = src.concat(config.src);
   const dist = gulp.src(src).pipe(gulp.dest('./dist'));
   const clcfn = gulp.src(claspConfig).pipe(gulp.dest('./'));
