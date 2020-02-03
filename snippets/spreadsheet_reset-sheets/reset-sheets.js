@@ -5,18 +5,6 @@
 
 /**
  * Runs the snippet.
- * Removes rows by condition 'B:B=10'.
- * @ignore
- */
-function run() {
-  var sheet = SpreadsheetApp.getActiveSheet();
-  deleteRowsByConditional_(sheet, function(row) {
-    return row[1] === 10;
-  });
-}
-
-/**
- * Runs the snippet.
  * Removes rows by condition 'B:B=10'. Appends deleted rows to the 'Archive' sheet.
  */
 function onOpen() {
@@ -35,6 +23,7 @@ function onOpen() {
       'Reset "GSM" columns',
       'userActionResetMultipleSheetsBySpecialColumns'
     )
+    .addItem('Reset to a specific value', 'userActionResetToSpecificValue')
     .addToUi();
 }
 
@@ -43,7 +32,10 @@ function onOpen() {
  */
 function userActionResetActiveSheetByRangesAddresses() {
   var sheet = SpreadsheetApp.getActiveSheet();
-  if (sheet.getName() !== 'ContactPrice') return;
+  if (sheet.getName() !== 'ContactPrice') {
+    SpreadsheetApp.getActive().toast('Please, activate "ContactPrice" sheet');
+    return;
+  }
   var rangesAddressesList = ['B5', 'B7', 'B9', 'B11', 'B15', 'B19'];
   resetByRangesList_(sheet, rangesAddressesList);
 }
@@ -130,10 +122,33 @@ function userActionResetMultipleSheetsBySpecialColumns() {
 }
 
 /**
+ * Reset to specific values
+ */
+function userActionResetToSpecificValue() {
+  var sheet = SpreadsheetApp.getActiveSheet();
+  if (sheet.getName() !== 'ContactPrice') {
+    SpreadsheetApp.getActive().toast('Please, activate "ContactPrice" sheet');
+    return;
+  }
+  var rangesAddressesList = ['B5', 'B7', 'B9', 'B11', 'B15', 'B19'];
+  resetByRangesListToValue_(sheet, rangesAddressesList, 'CLEARED');
+}
+
+/**
  * Clear the sheet by the range list
  * @param {GoogleAppsScript.Spreadsheet.Sheet} sheet The sheet
  * @param {Array.<string>} rangesAddressesList The list of ranges to return, as specified in A1 notation or R1C1 notation.
  */
 function resetByRangesList_(sheet, rangesAddressesList) {
   sheet.getRangeList(rangesAddressesList).clearContent();
+}
+
+/**
+ * Reset the sheet by the range list to a value
+ * @param {GoogleAppsScript.Spreadsheet.Sheet} sheet The sheet
+ * @param {Array.<string>} rangesAddressesList The list of ranges to return, as specified in A1 notation or R1C1 notation.
+ */
+function resetByRangesListToValue_(sheet, rangesAddressesList, value) {
+  value = value || '';
+  sheet.getRangeList(rangesAddressesList).setValue(value);
 }
