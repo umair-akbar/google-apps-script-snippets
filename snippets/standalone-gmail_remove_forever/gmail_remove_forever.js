@@ -3,7 +3,7 @@
  * @url https://support.google.com/mail/thread/28210414?hl=ru
  */
 
-const SPAMMEREMAIL = 'rt.ru';
+const SPAMMEREMAIL = 'spammer@spam.block';
 
 /**
  *
