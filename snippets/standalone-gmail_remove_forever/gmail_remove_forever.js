@@ -9,6 +9,9 @@ const SPAMMEREMAIL = 'rt.ru';
  *
  */
 function trigger() {
+  if (SPAMMEREMAIL.length < 3)
+    throw new Error('Danger of deleting all content!');
+
   Gmail.Users.Threads.list('me', {
     q: `(from:${SPAMMEREMAIL})`,
   }).threads.forEach(thread => Gmail.Users.Threads.remove('me', thread.id));
