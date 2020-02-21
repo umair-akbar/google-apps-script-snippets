@@ -1,5 +1,7 @@
 /**
  * @file Exporting Spreadsheets to files
+ * @see
+ * {@link https://qna.habr.com/q/718667}
  */
 
 /**
@@ -50,8 +52,8 @@ function exportSpreadsheetToFile_(spreadsheetId, type) {
   var url = Drive.Files.get(spreadsheetId).exportLinks[type_];
   var blob = UrlFetchApp.fetch(url, {
     headers: {
-      Authorization: 'Bearer ' + ScriptApp.getOAuthToken()
-    }
+      Authorization: 'Bearer ' + ScriptApp.getOAuthToken(),
+    },
   });
   var file = DriveApp.createFile(blob);
   return file;
@@ -74,7 +76,7 @@ function exportSpreadsheetToFile_(spreadsheetId, type) {
     'text/csv': 'text/csv',
     csv: 'text/csv',
     'application/zip': 'application/zip',
-    zip: 'application/zip'
+    zip: 'application/zip',
   };
   scope.__SNIPPETS__TYPES__EXPORT__SHEET__ = TYPES;
 })(this);
