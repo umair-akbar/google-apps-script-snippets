@@ -20,22 +20,27 @@ function run() {
  *
  */
 function runSheet() {
-  var spec = ['COUNTIF'];
+  const spec = ['COUNTIF']; // List of sheets for export
 
-  var spreadsheet = SpreadsheetApp.openById(
+  const spreadsheet = SpreadsheetApp.openById(
     '1TpHUfTvA7xBi4TLnWaplGasDumauA3YyMgXjXeQ2cyo'
   ).copy('tmp');
 
-  spec.forEach(function(sheetName) {
-    var dr = spreadsheet.getSheetByName(sheetName).getDataRange();
+  spec.forEach(sheetName => {
+    const dr = spreadsheet.getSheetByName(sheetName).getDataRange();
     dr.setValues(dr.getValues());
   });
-  spreadsheet.getSheets().forEach(function(sheet) {
+
+  spreadsheet.getSheets().forEach(sheet => {
     if (spec.indexOf(sheet.getName()) < 0) spreadsheet.deleteSheet(sheet);
   });
-  var spreadsheetId = spreadsheet.getId();
-  var file = exportSpreadsheetToFile_(spreadsheetId, 'xlsx');
+
+  const spreadsheetId = spreadsheet.getId();
+
+  const file = exportSpreadsheetToFile_(spreadsheetId, 'xlsx');
+
   DriveApp.getFileById(spreadsheetId).setTrashed(true);
+
   return file;
 }
 
@@ -47,20 +52,32 @@ function runSheet() {
  * @returns {GoogleAppsScript.Drive.File}
  */
 function exportSpreadsheetToFile_(spreadsheetId, type) {
+  const blob = exportSpreadsheetToBlob_(spreadsheetId, type);
+  const file = DriveApp.createFile(blob);
+  return file;
+}
+
+/**
+ * Exports the spreadsheet to Blob
+ *
+ * @param {string} spreadsheetId Spreadhseet ID
+ * @param {string} type MimeType or extension
+ * @returns {GoogleAppsScript.Base.Blob}
+ */
+function exportSpreadsheetToBlob_(spreadsheetId, type) {
   /* globals __SNIPPETS__TYPES__EXPORT__SHEET__ */
-  var type_ = __SNIPPETS__TYPES__EXPORT__SHEET__[type];
-  var url = Drive.Files.get(spreadsheetId).exportLinks[type_];
-  var blob = UrlFetchApp.fetch(url, {
+  const type_ = __SNIPPETS__TYPES__EXPORT__SHEET__[type];
+  const url = Drive.Files.get(spreadsheetId).exportLinks[type_];
+  const blob = UrlFetchApp.fetch(url, {
     headers: {
       Authorization: 'Bearer ' + ScriptApp.getOAuthToken(),
     },
   });
-  var file = DriveApp.createFile(blob);
-  return file;
+  return blob;
 }
 
 (function(scope) {
-  var TYPES = {
+  const TYPES = {
     'application/x-vnd.oasis.opendocument.spreadsheet':
       'application/x-vnd.oasis.opendocument.spreadsheet',
     'application/vnd.oasis.opendocument.spreadsheet':
