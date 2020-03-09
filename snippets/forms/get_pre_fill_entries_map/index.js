@@ -1,6 +1,8 @@
 /**
  * @file
  * [Get Entry ID which is used to pre-populate fields]{@link https://stackoverflow.com/questions/46017170}
+ * [Is it possible to 'prefill' a google form using data from a google spreadsheet? - Stack Overflow]{@link https://stackoverflow.com/questions/20108511}
+ * [How to prefill Google form checkboxes? - Stack Overflow]{@link https://stackoverflow.com/questions/26393556/how-to-prefill-google-form-checkboxes}
  */
 
 /**
