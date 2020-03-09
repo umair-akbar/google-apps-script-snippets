@@ -98,6 +98,30 @@ function getDefaultItemResponse_(item) {
       return item
         .asScaleItem()
         .createResponse(item.asScaleItem().getLowerBound());
+    case FormApp.ItemType.GRID: {
+      const columns = item.asGridItem().getColumns();
+      const resp = item
+        .asGridItem()
+        .getRows()
+        .map(() => columns[0]);
+      return item.asGridItem().createResponse(resp);
+    }
+    case FormApp.ItemType.CHECKBOX_GRID: {
+      const columns = item.asCheckboxGridItem().getColumns();
+      const resp = item
+        .asCheckboxGridItem()
+        .getRows()
+        .map(() => [columns[0]]);
+      return item.asCheckboxGridItem().createResponse(resp);
+    }
+    case FormApp.ItemType.DATE:
+      return item.asDateItem().createResponse(new Date());
+    case FormApp.ItemType.TIME:
+      return item.asTimeItem().createResponse(0, 0);
+    case FormApp.ItemType.DATETIME:
+      return item.asDateTimeItem().createResponse(new Date());
+    case FormApp.ItemType.DURATION:
+      return item.asDurationItem().createResponse(0, 0, 0);
     default:
       return undefined;
   }
