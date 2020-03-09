@@ -9,6 +9,12 @@ const del = require('del');
 const spawn = require('child_process').spawn;
 const ms = require('merge-stream');
 
+const packageJson = require('./package.json');
+
+const watchDelay =
+  (packageJson.devSettings ? packageJson.devSettings.watchDelay : undefined) ||
+  1000;
+
 gulp.task('br', function(done) {
   console.log(process.argv[4]);
   console.log('process.argv', process.argv);
@@ -60,6 +66,7 @@ gulp.task(
   gulp.series('br', 'clasp', function watch() {
     gulp.watch(
       ['./{snippets,extra,shims,drafts,.preliminary}/**/*.{js,gs,json,html}'],
+      { delay: watchDelay },
       gulp.series('br', 'clasp')
     );
   })
