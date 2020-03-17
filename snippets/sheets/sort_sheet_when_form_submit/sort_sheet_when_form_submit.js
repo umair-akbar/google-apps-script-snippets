@@ -32,7 +32,7 @@ function onEdit(e) {
       .getDataRange()
       .getValues()
       .findIndex(row => row[0] === '');
-    const rows = rowIndex === -1 ? sheet.getLastRow() - 1 : rowIndex;
+    const rows = rowIndex === -1 ? sheet.getLastRow() - 1 : rowIndex - 1;
     sheet.getRange(2, 1, rows, sheet.getLastColumn()).sort([
       { column: 4, ascending: true },
       { column: 1, ascending: false },
