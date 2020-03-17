@@ -39,3 +39,22 @@ function onEdit(e) {
     ]);
   }
 }
+
+/**
+ *
+ */
+function install() {
+  ScriptApp.getProjectTriggers().forEach(trigger => {
+    if (
+      [
+        ScriptApp.EventType.ON_FORM_SUBMIT,
+        ScriptApp.EventType.ON_EDIT,
+      ].includes(trigger.getEventType())
+    )
+      ScriptApp.deleteTrigger(trigger);
+  });
+  ScriptApp.newTrigger('onformsubmit')
+    .forSpreadsheet(SpreadsheetApp.getActive())
+    .onFormSubmit()
+    .create();
+}
