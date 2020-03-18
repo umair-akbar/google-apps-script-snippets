@@ -3,6 +3,7 @@
 /**
  * Checks if a range is a cell
  * @param {GoogleAppsScript.Spreadsheet.Range} range
+ * @return {boolean}
  */
 function isRangeACell_(range) {
   return !/:/.test(range.getA1Notation());
