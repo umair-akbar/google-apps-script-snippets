@@ -100,7 +100,8 @@ function deleteRowsByConditional_(sheet, condition, action) {
  *
  * @callback conditionCallback
  * @param {Array} array - The DataRange.
- * @param {Number} index - The index of the current row.
+ * @param {number} index - The index of the current row.
+ * @return {boolean}
  **/
 
 /**
@@ -108,6 +109,7 @@ function deleteRowsByConditional_(sheet, condition, action) {
  *
  * @callback dataCallback
  * @param {Array} array - The DataRange.
- * @param {Number} index - The index of the current row.
- * @param {Number} index2 - The index2 of the current row.
+ * @param {number} index - The index of the current row.
+ * @param {number} index2 - The index2 of the current row.
+ * @return {any}
  **/
