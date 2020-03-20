@@ -6,7 +6,7 @@
  * @return {boolean}
  */
 function isRangeACell_(range) {
-  return !/:/.test(range.getA1Notation());
+  return !~range.getA1Notation().indexOf(':');
 }
 
 /**
