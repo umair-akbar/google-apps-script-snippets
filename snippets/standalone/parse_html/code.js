@@ -1,21 +1,6 @@
 /**
  *
  */
-function parseHtml() {
-  const httpResponse = UrlFetchApp.fetch('https://t.me/googleappsscriptrc');
-  const contentText = httpResponse.getContentText();
-  const content = contentText.replace(/[\r\n]/g, ' ').replace(/[\s\S]+/, ' ');
-  const regExpExecArray = /<img class="tgme_page_photo_image" src="(.*?)">.*?<div class="tgme_page_title" dir="auto">(.*?)</.exec(
-    content
-  );
-  // if (regExpExecArray) console.log(regExpExecArray[1]);
-  // else
-  console.log(regExpExecArray);
-}
-
-/**
- *
- */
 function run() {
   const httpResponse = fetch_('https://t.me/googleappsscriptrc');
   const contentText = httpResponse.getContentText();
