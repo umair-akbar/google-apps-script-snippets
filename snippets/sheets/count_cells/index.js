@@ -68,7 +68,8 @@ function userActionGetCountEmptyCells() {
   const ui = SpreadsheetApp.getUi();
   ui.alert(
     'Count cells',
-    `Empty: ${countCells.count}. Total: ${countCells.total}`,
+    `Empty: ${countCells.count}. With values: ${countCells.total -
+      countCells.count}. Total: ${countCells.total}`,
     ui.ButtonSet.OK
   );
 }
