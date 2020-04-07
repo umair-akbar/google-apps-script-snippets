@@ -44,6 +44,10 @@ function onOpen() {
       'userActionGetCountEmptyCells'
     )
     .addItem(
+      'Get count non-empty cells of B:B range',
+      'userActionGetCountNonEmptyCells'
+    )
+    .addItem(
       'Get count white cells of active range',
       'userActionGetCountWhiteCells'
     )
@@ -88,6 +92,25 @@ function userActionGetCountWhiteCells() {
   ui.alert(
     'Count cells',
     `White: ${countCells.count}. Total: ${countCells.total}`,
+    ui.ButtonSet.OK
+  );
+}
+
+/**
+ * User action
+ */
+function userActionGetCountNonEmptyCells() {
+  /** @type {ReduceCallback} */
+  const filterCallback = cell => cell !== '';
+  const sheet = SpreadsheetApp.getActive().getSheetByName('Sheet1');
+  const countCells = getCountCells2_(
+    sheet.getRange(`B1:B${sheet.getLastRow()}`).getValues(),
+    filterCallback
+  );
+  const ui = SpreadsheetApp.getUi();
+  ui.alert(
+    'Count cells',
+    `Non-empty: ${countCells.count}. Total: ${countCells.total}`,
     ui.ButtonSet.OK
   );
 }
