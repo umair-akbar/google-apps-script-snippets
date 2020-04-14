@@ -1,3 +1,9 @@
+/**
+ * @file Import/Export to CSV
+ * @see
+ * {@link https://stackoverflow.com/questions/61200664/overwrite-file-google-sheets-script}
+ */
+
 /* exported onOpen, 
    userActionImportFromCSV, userActionExportToCSV, 
    batchUpdateSpreadsheet_ */
@@ -14,7 +20,7 @@ function onOpen() {
 }
 
 var CSV_FILE_ID = '1G9eI5bj_jYQz_a_mk4t5mmLJsgwOpP8q';
-var SHEETID = '0';
+// var SHEETID = '0';
 
 /**
  * User action. Import the CSV file
@@ -23,7 +29,7 @@ function userActionImportFromCSV() {
   var res = importFromCSV_(
     CSV_FILE_ID,
     SpreadsheetApp.getActive().getId(),
-    SHEETID
+    SpreadsheetApp.getActiveSheet().getSheetId()
   );
   Logger.log(res);
 }
@@ -35,7 +41,7 @@ function userActionExportToCSV() {
   var res = exportToCSV_(
     CSV_FILE_ID,
     SpreadsheetApp.getActive().getId(),
-    SHEETID
+    SpreadsheetApp.getActiveSheet().getSheetId()
   );
   Logger.log(res);
 }
@@ -68,7 +74,7 @@ function importFromCSV_(csvId, spreadsheetId, sheetId) {
   // Paste the data
   var pasteDataRequest = Sheets.newPasteDataRequest();
   pasteDataRequest.coordinate = {
-    sheetId: SHEETID,
+    sheetId: SpreadsheetApp.getActiveSheet().getSheetId(),
     rowIndex: 0,
     columnIndex: 0,
   };
