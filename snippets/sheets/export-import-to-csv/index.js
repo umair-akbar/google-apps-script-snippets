@@ -60,7 +60,7 @@ function importFromCSV_(csvId, spreadsheetId, sheetId) {
   updateCellsRequest.range = { sheetId: sheetId };
   batchUpdateSpreadsheet_(
     {
-      updateCells: updateCellsRequest
+      updateCells: updateCellsRequest,
     },
     spreadsheetId
   );
@@ -70,7 +70,7 @@ function importFromCSV_(csvId, spreadsheetId, sheetId) {
   pasteDataRequest.coordinate = {
     sheetId: SHEETID,
     rowIndex: 0,
-    columnIndex: 0
+    columnIndex: 0,
   };
   pasteDataRequest.data = data;
   pasteDataRequest.type = SpreadsheetApp.CopyPasteType.PASTE_VALUES;
@@ -78,7 +78,7 @@ function importFromCSV_(csvId, spreadsheetId, sheetId) {
 
   var batchUpdateSpreadsheetResponse = batchUpdateSpreadsheet_(
     {
-      pasteData: pasteDataRequest
+      pasteData: pasteDataRequest,
     },
     spreadsheetId
   );
@@ -87,9 +87,9 @@ function importFromCSV_(csvId, spreadsheetId, sheetId) {
 
 /**
  *
- * @param {*} csvId
- * @param {*} spreadsheetId
- * @param {*} sheetId
+ * @param {string} csvId
+ * @param {string} spreadsheetId
+ * @param {string | number} sheetId
  */
 function exportToCSV_(csvId, spreadsheetId, sheetId) {
   var url = Utilities.formatString(
@@ -99,7 +99,7 @@ function exportToCSV_(csvId, spreadsheetId, sheetId) {
   );
 
   var data = UrlFetchApp.fetch(url, {
-    headers: { Authorization: 'Bearer ' + ScriptApp.getOAuthToken() }
+    headers: { Authorization: 'Bearer ' + ScriptApp.getOAuthToken() },
   }).getBlob();
 
   DriveApp.getFileById(csvId).setContent(data.getDataAsString());
@@ -113,7 +113,7 @@ function exportToCSV_(csvId, spreadsheetId, sheetId) {
  */
 function batchUpdateSpreadsheet_(request, spreadsheetId) {
   var resource = {
-    requests: []
+    requests: [],
   };
   resource.requests.push(request);
   var batchUpdateSpreadsheetResponse = Sheets.Spreadsheets.batchUpdate(
