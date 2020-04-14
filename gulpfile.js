@@ -23,9 +23,9 @@ gulp.task('br', function(done) {
   console.log(snippet);
   del.sync('./dist/');
   let src = [
-    `${snippet}*.js`,
-    `${snippet}*.ts`,
-    `${snippet}*.html`,
+    `${snippet}**/*.js`,
+    `${snippet}**/*.ts`,
+    `${snippet}**/*.html`,
     `${snippet}appsscript.json`,
   ];
   let claspConfig = '';
@@ -33,7 +33,7 @@ gulp.task('br', function(done) {
   if (config.type === 'single') claspConfig = `${snippet}.clasp.json`;
   else claspConfig = `settings/${config.type}/.clasp.json`;
   if (config.src) src = src.concat(config.src);
-  const dist = gulp.src(src).pipe(gulp.dest('./dist'));
+  const dist = gulp.src(src).pipe(gulp.dest('./dist'), { base: snippet });
   const clcfn = gulp.src(claspConfig).pipe(gulp.dest('./'));
   return ms(dist, clcfn);
 });
@@ -48,7 +48,6 @@ gulp.task('clasp', function(cb) {
     cb(code);
   });
 });
- // 
 
 gulp.task('develop', gulp.series('br', 'clasp'));
 
