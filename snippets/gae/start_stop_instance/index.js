@@ -9,8 +9,8 @@ const DEFAULT_PROJECT = {
  *
  */
 function runStop() {
-  const reques = Object.assign(DEFAULT_PROJECT, { filter: 'name=instance-1' });
-  const instances = JSON.parse(Instances.list(reques).getContentText());
+  const request = Object.assign(DEFAULT_PROJECT, { filter: 'name=instance-1' });
+  const instances = JSON.parse(Instances.list(request).getContentText());
   const res = {};
   if (instances && instances.items)
     res.stops = instances.items.map(item =>

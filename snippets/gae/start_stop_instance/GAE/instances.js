@@ -56,7 +56,7 @@ const Instances = (self => {
    */
   const stop = (request, urlFetchRequestOptions) => {
     const host = 'https://compute.googleapis.com/compute/v1/projects';
-    const pathParamsNames = ['project', 'zones', 'resourceId'];
+    const pathParamsNames = ['project', 'zone', 'resourceId'];
     const pathParams = Object.keys(request).reduce((p, c) => {
       if (pathParamsNames.includes(c)) p[c] = request[c];
       return p;
@@ -101,7 +101,7 @@ const Instances = (self => {
    */
   const start = (request, urlFetchRequestOptions) => {
     const host = 'https://compute.googleapis.com/compute/v1/projects';
-    const pathParamsNames = ['project', 'zones', 'resourceId'];
+    const pathParamsNames = ['project', 'zone', 'resourceId'];
     const pathParams = Object.keys(request).reduce((p, c) => {
       if (pathParamsNames.includes(c)) p[c] = request[c];
       return p;
