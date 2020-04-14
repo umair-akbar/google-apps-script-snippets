@@ -1,1 +1,6 @@
 **/formatter.js
+!appsscript.json
+!**/*.gs
+!**/*.js
+!**/*.ts
+!**/*.html
