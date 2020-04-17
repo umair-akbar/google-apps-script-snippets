@@ -53,12 +53,14 @@ gulp.task('develop', gulp.series('br', 'clasp'));
 
 gulp.task('copy-sheet', function() {
   console.log(arg);
-  if (arg.name)
-    return gulp
-      .src('./templates/spreadsheet/**/*.*', {
-        base: './templates/spreadsheet',
-      })
-      .pipe(gulp.dest(`./snippets/spreadsheet_${arg.name}`));
+  // if (arg.name)
+  return gulp
+    .src('./templates/sheet_snippet/**/*.*', {
+      base: './templates/sheet_snippet',
+    })
+    .pipe(
+      gulp.dest(`./snippets/sheets/_auto_${arg.name || new Date().getTime()}`)
+    );
 });
 
 gulp.task(
