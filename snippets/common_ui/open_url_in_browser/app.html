@@ -10,8 +10,8 @@
   <body>
     <div id="message"></div>
     <script>
-      var url = <?= url ?>;
-        var newWin = window.open(url, "_blank");
+      const url = <?= url ?>;
+        const newWin = window.open(url, "_blank");
         if(!newWin || newWin.closed || typeof newWin.closed=='undefined'){
           document.getElementById("message").innerHTML =
             'Pop-ups blocked! <a href="https://support.google.com/chrome/answer/95472" target="_blank">Enable</a>.';
