@@ -1,4 +1,9 @@
 /**
+ * @file
+ * @url https://twitter.com/oshliaer/status/1252620823724281862
+ */
+
+/**
  * Create menu
  */
 function onOpen() {
