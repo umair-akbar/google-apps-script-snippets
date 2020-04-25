@@ -1,4 +1,4 @@
-/* eslint-disable_ no-unused-vars */
+/* eslint-disable no-unused-vars */
 /**
  * @file
  */
