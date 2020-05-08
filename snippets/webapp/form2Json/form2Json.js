@@ -73,5 +73,7 @@ function form2Json(formString) {
 function testForm2Json() {
   const contents =
     'orderName=zxx&payment%5Bsys%5D=none&payment%5Bsystranid%5D=0&payment%5Borderid%5D=1705693330&payment%5Bproducts%5D%5B0%5D%5Bname%5D=%D0%9A%D0%B0%D1%80%D0%B0%D0%BD%D0%B4%D0%B0%D1%88%D0%BD%D0%B8%D1%86%D0%B0%2B%D0%A1%D1%82%D0%B0%D0%BA%D0%B0%D0%BD&payment%5Bproducts%5D%5B0%5D%5Bquantity%5D=1&payment%5Bproducts%5D%5B0%5D%5Bamount%5D=790&payment%5Bproducts%5D%5B0%5D%5Bprice%5D=790&payment%5Bamount%5D=790&formid=form189294992&formname=Cart';
-  console.log(JSON.stringify(form2Json(contents)));
+  const data = form2Json(contents);
+  console.log(JSON.stringify(data.payment.products[0]));
+  console.log(JSON.stringify(data));
 }
