@@ -24,6 +24,7 @@ function onOpen() {
       'userActionResetMultipleSheetsBySpecialColumns'
     )
     .addItem('Reset to a specific value', 'userActionResetToSpecificValue')
+    .addItem('Make a copy before reset', 'userActionMakeCopyBeforeReset')
     .addToUi();
 }
 
