@@ -22,9 +22,8 @@ function userActionSetfilter() {
  *
  */
 function userActionRemoveFilter() {
-  SpreadsheetApp.getActiveSheet()
-    .getFilter()
-    .remove();
+  const filter = SpreadsheetApp.getActiveSheet().getFilter();
+  if (filter) filter.remove();
 }
 
 /**
