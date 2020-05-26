@@ -4,7 +4,7 @@
  */
 
 /**
- * Get currecies by a date
+ * Get currencies by a date
  */
 function run() {
   const httpResponse = UrlFetchApp.fetch(
@@ -13,7 +13,7 @@ function run() {
   const data = Utilities.newBlob(httpResponse.getContent(), 'plain/text')
     .getDataAsString()
     .split('\n')
-    .map((line) => line.split('|'))
+    .map((line) => line.split('|')) 
     .slice(1);
   console.log(data);
   /*
