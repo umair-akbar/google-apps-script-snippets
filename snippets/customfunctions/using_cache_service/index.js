@@ -4,7 +4,7 @@
  * @see {@link https://qna.habr.com/q/778215}
  */
 
-/* exported RAINREPORT */
+/* exported TESTCACHESERVICE */
 
 /**
  * @OnlyCurrentDoc
