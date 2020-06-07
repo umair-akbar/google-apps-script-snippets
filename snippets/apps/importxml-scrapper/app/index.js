@@ -19,14 +19,14 @@ class ImportxmlScrapper {
   init() {
     const sheet = this.data.copyTo(this.book);
     sheet
-      .createTextFinder('(.*IMPORTXML.*)')
+      .createTextFinder('^s*=s*(.*IMPORTXMLs*().*)')
       .useRegularExpression(true)
       .matchFormulaText(true)
-      .replaceAllWith('_$1');
-    sheet.setName(`[inproc] ${sheet.getName()}`);
+      .replaceAllWith('_=$1');
+    sheet.setName(`[inproc] ${new Date().toLocaleString('ru')}`);
   }
   /**
-   *
+   * @return {GoogleAppsScript.Spreadsheet.Sheet}
    */
   scrape({ counter = 50 }) {
     let _counter_ = counter;
@@ -34,15 +34,18 @@ class ImportxmlScrapper {
       .getSheets()
       .find((sheet) => /\[inproc\]/i.test(sheet.getName()));
 
-    if (!current) return;
+    if (!current) return undefined;
 
     const substFinder = current
       .createTextFinder('^_=')
       .useRegularExpression(true);
-    while (substFinder.findNext() && --_counter_) substFinder.replaceWith('=');
-    SpreadsheetApp.flush();
-
-    const dr = current.getDataRange();
-    dr.setValues(dr.getValues());
+    if (substFinder.findAll().length) {
+      while (substFinder.findNext() && --_counter_)
+        substFinder.replaceWith('=');
+      SpreadsheetApp.flush();
+      const dr = current.getDataRange();
+      dr.setValues(dr.getValues());
+    } else current.setName(current.getName().replace(/\[inproc\]/i, '[done]'));
+    return current;
   }
 }
