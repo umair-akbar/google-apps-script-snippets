@@ -3,6 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const gulp = require('gulp');
 const del = require('del');
+const finc = require('gulp-file-include');
 
 // https://stackoverflow.com/questions/29511491,
 // https://gist.github.com/rmckeel/b4e60922f5098ced9c50bdd96731b34a
@@ -15,8 +16,11 @@ const watchDelay =
   (packageJson.devSettings ? packageJson.devSettings.watchDelay : undefined) ||
   1000;
 
-gulp.task('br', function(done) {
-  console.log(process.argv[4]);
+gulp.task('br', function (done) {
+  // console.log('asdfsdf', path.normalize(`${process.cwd()}/`));
+
+  // console.log(process.argv[4]);
+  // console.log(process.cwd());
   console.log('process.argv', process.argv);
   const snippet = `${path.normalize(process.argv[4])}/`;
   const config = JSON.parse(fs.readFileSync(path.join(snippet, 'config.json')));
@@ -33,17 +37,25 @@ gulp.task('br', function(done) {
   if (config.type === 'single') claspConfig = `${snippet}.clasp.json`;
   else claspConfig = `settings/${config.type}/.clasp.json`;
   if (config.src) src = src.concat(config.src);
-  const dist = gulp.src(src).pipe(gulp.dest('./dist'), { base: snippet });
+  const dist = gulp
+    .src(src)
+    .pipe(
+      finc({
+        prefix: '__file',
+        basepath: '@root',
+      })
+    )
+    .pipe(gulp.dest('./dist'), { base: snippet });
   const clcfn = gulp.src(claspConfig).pipe(gulp.dest('./'));
   return ms(dist, clcfn);
 });
 
-gulp.task('clasp', function(cb) {
+gulp.task('clasp', function (cb) {
   cb = cb || console.log;
   const cmd = spawn('./node_modules/.bin/clasp', ['push'], {
     stdio: 'inherit',
   });
-  cmd.on('close', function(code) {
+  cmd.on('close', function (code) {
     console.log('clasp exited with code ' + code);
     cb(code);
   });
@@ -51,7 +63,7 @@ gulp.task('clasp', function(cb) {
 
 gulp.task('develop', gulp.series('br', 'clasp'));
 
-gulp.task('copy-sheet', function() {
+gulp.task('copy-sheet', function () {
   console.log(arg);
   // if (arg.name)
   return gulp
@@ -75,7 +87,7 @@ gulp.task(
 );
 
 // fetch command line arguments
-const arg = (argList => {
+const arg = ((argList) => {
   const arg = {};
   let a;
   let opt;
